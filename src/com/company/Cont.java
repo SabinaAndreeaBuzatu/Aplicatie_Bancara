@@ -7,19 +7,21 @@ public abstract class Cont {
     protected String IBAN;
     protected String Valuta;
     protected double Sold;
-    protected Card card[];
+    protected int nrcarduri;
+    protected Card[] card;
     protected double ComisionA;
     protected String DataAcordare;
 
 
 
 
-    public Cont(String IBAN, String Valuta, double Sold,int n, Card card[],String DataAcordare) {
+    public Cont(String IBAN, String Valuta, double Sold,int n, Card[] card,String DataAcordare) {
         this.card = new Card[n];
         this.IBAN = IBAN;
         this.Valuta = Valuta;
         this.Sold = Sold;
-        for(int i=0;i<n;i++)
+        nrcarduri=n;
+        for(int i=0;i<nrcarduri;i++)
 
             this.card[i]=card[i];
         comisionAdministrareCont();
@@ -64,6 +66,75 @@ public abstract class Cont {
     }
     abstract public double comisionAdministrareCont ();
 
+    @Override
+    public boolean equals(Object obj) {
+        if(this!=obj)
+            return false;
+        if(obj==null)
+            return false;
+        if(this.getClass()!=obj.getClass())
+            return false;
+        Cont c =(Cont) obj;
 
-}
+        if(!Objects.equals(this.IBAN, c.IBAN))
+            return false;
+        if(!Objects.equals(this.DataAcordare, c.DataAcordare))
+            return false;
+        if(this.Sold!= c.Sold)
+            return false;
+        if(!Objects.equals(this.Valuta, c.Valuta))
+            return false;
+        if(!Objects.equals(this.card,c.card))
+            return false;
+        return true;
+    }
+
+
+    public void adaugareCard(Card card)
+
+    {    int ok=1;
+        for (Card i: this.card)
+        if(card.equals(i))
+        {System.out.println("Cardul " + card.NrCard + "exista deja. Va rugam alegeti alt card");
+        ok=0;}
+        if(ok==1) {
+            this.card[this.card.length]=card;
+        }
+
+
+    }
+
+    public void stergeCard(Card card)
+    {
+        int ok=1;
+        for (int i=0;i<this.nrcarduri;i++)
+        {if(card.equals(this.card[i]))
+        {ok=0;
+              for( int j=i; j< this.nrcarduri-1;j++)
+            {   this.card[j]=this.card[j+1];
+
+             }
+             i=this.nrcarduri;
+           this.card[this.nrcarduri-1]=null;
+           nrcarduri--;}}
+        if(ok==1) { System.out.println("Cardul " + card.NrCard + " nu exista. Va rugam alegeti alt card ");
+
+        }}
+
+    @Override
+    public String toString() {
+        StringBuilder a= new StringBuilder();
+        a.append("Contul " + this.IBAN + ", Data deschiderii contului " + this.DataAcordare + ", Soldul curent este: " +this.Sold + " in valuta "+ Valuta + " si are un comision de administrare lunar de " +ComisionA+ Valuta);
+        a.append("\nContul are atasat " + this.nrcarduri + " carduri:");
+        for( int j=0; j< nrcarduri;j++)
+
+            a.append("\n"+card[j]);
+
+        return a.toString();
+    }
+    }
+
+
+
+
 

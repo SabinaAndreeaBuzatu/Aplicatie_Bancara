@@ -9,11 +9,12 @@ public class Client {
 
 
 
-    public Client( String Nume, String Prenume, String DataNasterii )
+    public Client( String Nume, String Prenume, String DataNasterii, String CNP )
     {
         this.Nume = Nume;
         this.Prenume = Prenume;
         this.DataNasterii = DataNasterii;
+        this.CNP=CNP;
 
     }
 
@@ -29,6 +30,7 @@ public class Client {
     {
         return DataNasterii;
     }
+    public String getCNP() {return CNP;}
     public void setNume(String Nume) {
         this.Nume = Nume;
     }
@@ -38,4 +40,5 @@ public class Client {
     public void setDataNasterii(String DataNasterii) {
         this.DataNasterii = DataNasterii;
     }
+    public void setCNP(String CNP) {this.CNP=CNP;}
     }

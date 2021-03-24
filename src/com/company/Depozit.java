@@ -7,7 +7,7 @@ public class Depozit extends Cont {
     public Depozit(String IBAN, String Valuta, double Sold,int n, Card[] card,String DataAcordare, ContCurent contc)
         {
             super( IBAN, Valuta, Sold, n, card, DataAcordare);
-            this.dobanda=dobanda();
+            this.dobanda=calcdobanda();
             this.contc=contc;
 
         }
@@ -17,9 +17,21 @@ public class Depozit extends Cont {
         {
            return 0;
         }
-        public double dobanda ()
+        public double calcdobanda ()
         {
             return 3*Sold/1000;
         }
 
-    };
+        public void AdaugaDobandaDepozit(){
+
+        this.Sold=dobanda+Sold;
+        }
+
+    public double getDobanda() {
+        return dobanda;
+    }
+    public void setDobanda(double dobanda)
+    {
+        this.dobanda=dobanda;
+    }
+};
