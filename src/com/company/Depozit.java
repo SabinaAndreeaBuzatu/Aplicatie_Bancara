@@ -9,7 +9,7 @@ public class Depozit extends Cont {
             super( IBAN, Valuta, Sold, n, card, DataAcordare);
             this.dobanda=calcdobanda();
             this.contc=contc;
-
+            this.tipcont="Depozit";
         }
 
        @Override

@@ -9,6 +9,7 @@ public class CreditFix extends Credit {
         super(IBAN, Valuta,Sold, n, card , durataluni,DataAcordare,SumaAcordata,contc);
         if(dobanda==0)
         this.dobanda=dobanda();
+        this.tipcont="Credit cu dobanda fixa";
     }
     @Override
     public double comisionAdministrareCont ()

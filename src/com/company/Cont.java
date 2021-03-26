@@ -11,6 +11,7 @@ public abstract class Cont {
     protected Card[] card;
     protected double ComisionA;
     protected String DataAcordare;
+    protected String tipcont;
 
 
 
@@ -28,6 +29,7 @@ public abstract class Cont {
         this.DataAcordare=DataAcordare;
 
 
+
     }
 
     public Cont(Cont cont) {
@@ -40,7 +42,6 @@ public abstract class Cont {
     {
         return IBAN;
     }
-
     public String getValuta()
     {
         return Valuta;
@@ -51,10 +52,19 @@ public abstract class Cont {
     public double getComisionA() {
         return ComisionA;
     }
+    public double getnrcarduri() {
+        return nrcarduri;
+    }
+    public String gettipcont() {
+        return tipcont;}
+
+    //public Card[] getcard() {return card;}
     public void setIBAN(String IBAN) {
         this.IBAN = IBAN;
     }
-
+    public void setnrcarduri(int nrcarduri) {
+        this.nrcarduri = nrcarduri;
+    }
     public void setValuta(String Valuta) {
         this.Valuta = Valuta;
     }
@@ -64,6 +74,9 @@ public abstract class Cont {
     public void setComisionA(double ComisionA) {
         this.ComisionA = ComisionA;
     }
+    public void settipcont(String tipcont) {this.tipcont=tipcont;}
+
+
     abstract public double comisionAdministrareCont ();
 
     @Override
@@ -82,9 +95,11 @@ public abstract class Cont {
             return false;
         if(this.Sold!= c.Sold)
             return false;
-        if(!Objects.equals(this.Valuta, c.Valuta))
+        if(this.Valuta!= c.Valuta)
             return false;
         if(!Objects.equals(this.card,c.card))
+            return false;
+        if(!Objects.equals(this.tipcont,c.tipcont))
             return false;
         return true;
     }
@@ -124,8 +139,8 @@ public abstract class Cont {
     @Override
     public String toString() {
         StringBuilder a= new StringBuilder();
-        a.append("Contul " + this.IBAN + ", Data deschiderii contului " + this.DataAcordare + ", Soldul curent este: " +this.Sold + " in valuta "+ Valuta + " si are un comision de administrare lunar de " +ComisionA+ Valuta);
-        a.append("\nContul are atasat " + this.nrcarduri + " carduri:");
+        a.append("\n" + this.tipcont+" cu IBAN " +this.IBAN + ", Data deschiderii contului " + this.DataAcordare + ", Soldul curent este: " +this.Sold + " in valuta "+ Valuta + " si are un comision de administrare lunar de " +ComisionA+ Valuta);
+        a.append("\nAcesta are atasat " + this.nrcarduri + " carduri.\n");
         for( int j=0; j< nrcarduri;j++)
 
             a.append("\n"+card[j]);

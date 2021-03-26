@@ -1,9 +1,9 @@
-package com.company;
+/*package com.company;
 import java.util.*;
 
 public class Banca {
 
-    protected Map<Client, Cont> evidenta;
+    //protected List<pair<Client, Cont> >evidenta;
 
     public Banca(int n, Client[] clienti, Cont[] conturi)
     {
@@ -13,6 +13,15 @@ public class Banca {
 
 
     }
+    @Override
+    public String toString() {
+        StringBuilder a= new StringBuilder();
+        a.append("\nContul  este: \n" + evidenta.toString());
+
+
+        return a.toString();
+    }
 
 
 }
+*/

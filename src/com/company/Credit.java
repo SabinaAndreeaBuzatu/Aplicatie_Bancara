@@ -35,5 +35,13 @@ public abstract class Credit extends Cont{
     public  void setDobanda(double dobanda) {
         this.dobanda=dobanda;
     }
+    @Override
+    public String toString() {
+        StringBuilder a= new StringBuilder();
+        a.append(super.toString());
+        a.append("Creditul se desfasoara pe  " + this.durataluni + " luni, suma acordata este " + this.SumaAcordata + this.Valuta+". Dobanda pentru acest credit este " +this.dobanda + " Rata va fi colectata din  "+ contc.toString());
+
+        return a.toString();
+    }
 
 }

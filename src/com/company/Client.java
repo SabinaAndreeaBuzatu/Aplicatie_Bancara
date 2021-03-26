@@ -41,4 +41,13 @@ public class Client {
         this.DataNasterii = DataNasterii;
     }
     public void setCNP(String CNP) {this.CNP=CNP;}
+
+    @Override
+    public String toString() {
+        StringBuilder a= new StringBuilder();
+        a.append("Clientul: "+Nume+" "+Prenume+" avand CNP "+CNP+"si cu data nasterii "+DataNasterii);
+
+
+        return a.toString();
+    }
     }
