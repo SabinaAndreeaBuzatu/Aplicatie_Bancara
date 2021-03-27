@@ -1,5 +1,5 @@
-package com.company;
-
+package ServiciiBancare;
+import Produs.*;
 public class SchimbValutar extends Tranzactie {
     Pair<Cont> tranz;
 
@@ -12,7 +12,7 @@ public class SchimbValutar extends Tranzactie {
         StringBuilder a= new StringBuilder();
         a.append(super.toString());
         a.append(tranz.toString());
-        a.append(" A fost transferata suma de "+suma+" "+tranz.sursa.Valuta +" din contul cu IBAN "+ tranz.sursa.IBAN+" in contul cu IBAN "+tranz.destinatie.IBAN+" convertita in valuta contului destinatie");
+        a.append(" A fost transferata suma de "+suma+" "+tranz.sursa.getValuta() +" din contul cu IBAN "+ tranz.sursa.getIBAN()+" in contul cu IBAN "+tranz.destinatie.getIBAN()+" convertita in valuta contului destinatie");
         tranz.toString();
         return a.toString();
     }

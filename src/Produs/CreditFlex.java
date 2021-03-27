@@ -1,5 +1,5 @@
-package com.company;
-
+package Produs;
+import com.company.BNRval;
 public class CreditFlex extends Credit {
 
 

@@ -1,6 +1,8 @@
-package com.company;
+package ServiciiBancare;
 
-public class Alimentare extends Tranzactie{
+import Produs.*;
+
+public class Alimentare extends Tranzactie {
 
         protected Cont cont;
 
@@ -14,7 +16,7 @@ public class Alimentare extends Tranzactie{
     public String toString() {
         StringBuilder a= new StringBuilder();
         a.append(super.toString());
-        a.append(" Contul cu IBAN "+cont.IBAN +" a fost alimentat cu "+suma+cont.Valuta );
+        a.append(" Contul cu IBAN "+cont.getIBAN() +" a fost alimentat cu "+suma+cont.getValuta() );
 
 
         return a.toString();

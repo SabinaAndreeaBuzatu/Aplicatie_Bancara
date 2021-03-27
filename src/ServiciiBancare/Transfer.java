@@ -1,5 +1,5 @@
-package com.company;
-
+package ServiciiBancare;
+import Produs.*;
 public class Transfer extends Tranzactie {
 
     Pair<Cont> tranz;
@@ -12,7 +12,7 @@ public class Transfer extends Tranzactie {
     public boolean egalitatevaluta()
 
     {
-        if( tranz.sursa.Valuta.equals(tranz.destinatie.Valuta))
+        if( tranz.sursa.getValuta().equals(tranz.destinatie.getValuta()))
             return true;
         else
             return false;
@@ -31,7 +31,7 @@ public class Transfer extends Tranzactie {
         StringBuilder a= new StringBuilder();
         a.append(super.toString());
         a.append(tranz.toString());
-        a.append("\nA fost transferata suma de "+suma+" "+tranz.sursa.Valuta +" din contul cu IBAN "+ tranz.sursa.IBAN+" in contul cu IBAN "+tranz.destinatie.IBAN);
+        a.append("\nA fost transferata suma de "+suma+" "+tranz.sursa.getValuta() +" din contul cu IBAN "+ tranz.sursa.getIBAN()+" in contul cu IBAN "+tranz.destinatie.getIBAN());
         tranz.toString();
 
 

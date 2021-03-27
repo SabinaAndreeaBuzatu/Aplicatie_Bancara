@@ -1,5 +1,9 @@
 package com.company;
 
+import ServiciiBancare.*;
+import Produs.*;
+
+
 public class service {
 
 
@@ -15,15 +19,15 @@ public class service {
     public Transfer transfer(Cont sursa, Cont destinatie , String DataTranzactie, String mesaj, double suma)  {
         Pair<Cont> p =new Pair<>(sursa,destinatie);
         Transfer t=new Transfer();
-        if (sursa.Valuta.equals(destinatie.Valuta)) {
+        if (sursa.getValuta().equals(destinatie.getValuta())) {
             {  t=new Transfer(p,DataTranzactie,mesaj,suma);
-            sursa.Sold -= suma;
-            destinatie.Sold += suma;
+            sursa.setSold( sursa.getSold()- suma);
+                destinatie.setSold( destinatie.getSold()+ suma);
             return t;}
     }
         else
         {
-            System.out.println("Contul sursa are valuta " + sursa.Valuta + " iar contul destinatie are valuta " + destinatie.Valuta + ". Nu se poate efectua transferul.");
+            System.out.println("Contul sursa are valuta " + sursa.getValuta() + " iar contul destinatie are valuta " + destinatie.getValuta() + ". Nu se poate efectua transferul.");
             return t;}
 
 
@@ -45,13 +49,13 @@ public class service {
 
      public Alimentare alimentare(Cont cont,String DataTranzactie, String mesaj, double suma)
      {
-         cont.Sold+=suma;
+         cont.setSold( cont.getSold()+ suma);
          Alimentare a = new Alimentare(cont, DataTranzactie, mesaj,  suma);
          return a;
      }
-    public Retragere Retragere(Cont cont,String DataTranzactie, String mesaj, double suma)
+    public Retragere Retragere(Cont cont, String DataTranzactie, String mesaj, double suma)
     {  /////if
-        cont.Sold-=suma;
+        cont.setSold( cont.getSold()- suma);
         Retragere a = new Retragere(cont, DataTranzactie, mesaj,  suma);
         return a;
     }

@@ -1,4 +1,6 @@
-package com.company;
+package Produs;
+
+import com.company.Client;
 
 public class ContCurent extends Cont {
     protected Client client;
@@ -10,6 +12,8 @@ public class ContCurent extends Cont {
          this.tipcont="Cont curent";
 
      }
+
+
 
     @Override
     public double comisionAdministrareCont() {

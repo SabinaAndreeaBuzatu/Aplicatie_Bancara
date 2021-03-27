@@ -1,5 +1,5 @@
-package com.company;
-
+package Produs;
+import com.company.*;
 public abstract class Credit extends Cont{
 
     protected int durataluni;

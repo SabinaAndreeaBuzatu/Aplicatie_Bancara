@@ -1,12 +1,16 @@
 package com.company;
-import java.util.*;
 
+import Produs.*;
+import ServiciiBancare.Alimentare;
+import ServiciiBancare.Extras;
+import ServiciiBancare.Pair;
+import ServiciiBancare.Transfer;
 
 public class Main {
 
     public static void main(String[] args) {
         Client eu = new Client("sabina", "buzatu", "15 ian","DFGVBH");
-        ContCurent aoleu = new ContCurent("123456789","RON",1000,0,null,"23 feb 2009",eu);
+        ContCurent aoleu = new ContCurent("123456789","RON",1000.7,0,null,"23 feb 2009",eu);
         Cont x = new Depozit("99766435537", "RON", 120.9, 0, null, "1 ian 2012",  aoleu);
         InchiriereCutieValori z=new InchiriereCutieValori(100000,"12 feb","strada Marului, nr 5",aoleu);
         Client[] eu1 = new Client[1];

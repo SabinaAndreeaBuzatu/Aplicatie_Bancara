@@ -1,4 +1,4 @@
-package com.company;
+package Produs;
 
 public class CreditFix extends Credit {
 

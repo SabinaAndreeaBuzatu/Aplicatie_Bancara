@@ -1,4 +1,5 @@
-package com.company;
+package Produs;
+
 
 public class InchiriereCutieValori {
     protected double PragValoriDeclarat;
