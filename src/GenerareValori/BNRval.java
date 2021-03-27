@@ -1,4 +1,4 @@
-package com.company;
+package GenerareValori;
 
 import java.util.*;
 
@@ -142,23 +142,23 @@ public class BNRval {
     public void calcifrac()
     {   Random r = new Random();
 
-        this.chf=3.5+2.5*r.nextDouble(); //(min+(max-min)*nextdouble)
+        this.chf=Math.round(((3.5+2.5*r.nextDouble())*100.00))/100.0; //(min+(max-min)*nextdouble)
     }
     public void calcirubla()
     {   Random r = new Random();
 
-        this.rub=r.nextDouble(); //(min+(max-min)*nextdouble)
+        this.rub=Math.round(((r.nextDouble())*100.00))/100.0; //(min+(max-min)*nextdouble)
     }public void calciyeni()
     {   Random r = new Random();
 
-        this.jpy=3+1.5*r.nextDouble(); //(min+(max-min)*nextdouble)
+        this.jpy=Math.round(((3+1.5*r.nextDouble())*100.00))/100.0; //(min+(max-min)*nextdouble)
     }public void calccoroana()
     {   Random r = new Random();
 
-        this.czk=r.nextDouble(); //(min+(max-min)*nextdouble)
+        this.czk=Math.round(((r.nextDouble())*100.00))/100.0; //(min+(max-min)*nextdouble)
     }public void calcaur()
     {   Random r = new Random();
 
-        this.gramaur=200+400*r.nextDouble(); //(min+(max-min)*nextdouble)
+        this.gramaur=Math.round(((200+400*r.nextDouble())*100.00))/100.0; //(min+(max-min)*nextdouble)
     }
 }

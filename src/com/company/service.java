@@ -1,5 +1,6 @@
 package com.company;
 
+import GenerareValori.BNRval;
 import ServiciiBancare.*;
 import Produs.*;
 

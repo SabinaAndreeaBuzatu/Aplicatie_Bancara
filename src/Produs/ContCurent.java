@@ -1,6 +1,6 @@
 package Produs;
 
-import com.company.Client;
+import Client.Client;
 
 public class ContCurent extends Cont {
     protected Client client;

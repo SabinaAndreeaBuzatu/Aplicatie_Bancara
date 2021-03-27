@@ -1,5 +1,6 @@
 package Produs;
-import com.company.*;
+import GenerareValori.BNRval;
+
 public abstract class Credit extends Cont{
 
     protected int durataluni;

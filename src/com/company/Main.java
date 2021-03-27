@@ -1,5 +1,6 @@
 package com.company;
 
+import Client.Client;
 import Produs.*;
 import ServiciiBancare.*;
 

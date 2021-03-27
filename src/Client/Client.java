@@ -1,4 +1,4 @@
-package com.company;
+package Client;
 import java.util.*;
 public class Client {
 
