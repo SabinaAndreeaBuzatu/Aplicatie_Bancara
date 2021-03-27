@@ -6,9 +6,11 @@ public class Extras  {
     protected Cont cont;
     protected Tranzactie[] traz;
 
-    public Extras(String Data, Cont cont) {
+    public Extras(String Data, Cont cont,Tranzactie[] traz) {
         this.cont = cont;
         this.Data = Data;
+        this.traz=traz;
+
     }
 
 }

@@ -1,6 +1,8 @@
 package com.company;
 
 import java.util.*;
+
+
 public class BNRval {
 
     protected double robor;
@@ -13,6 +15,7 @@ public class BNRval {
     protected double jpy;
     protected double czk;
     protected double gramaur;
+
 
 
 
@@ -114,7 +117,7 @@ public class BNRval {
 
     public void calcrobor()
     {   Random r = new Random();
-        this.robor=1+6*r.nextDouble();//(min+(max-min)*nextdouble)
+        this.robor=1+10*r.nextDouble();//(min+(max-min)*nextdouble)
     }
     public void calcircc()
     {   Random r = new Random();
@@ -124,38 +127,38 @@ public class BNRval {
     public void calceuro()
     {   Random r = new Random();
 
-        this.ircc=3+2*r.nextDouble(); //(min+(max-min)*nextdouble)
+        this.euro=Math.round(((3.5+1.5*r.nextDouble()))*100.00)/100.0; //(min+(max-min)*nextdouble)
     }
     public void calcusd()
     {   Random r = new Random();
 
-        this.ircc=3+4.5*r.nextDouble(); //(min+(max-min)*nextdouble)
+        this.usd=Math.round(((3+1.5*r.nextDouble())*100.00))/100.0; //(min+(max-min)*nextdouble)
     }
     public void calciliras()
     {   Random r = new Random();
 
-        this.ircc=5+6.5*r.nextDouble(); //(min+(max-min)*nextdouble)
+        this.gbp=Math.round(((4+1.5*r.nextDouble())*100.00))/100.0; //(min+(max-min)*nextdouble)
     }
     public void calcifrac()
     {   Random r = new Random();
 
-        this.ircc=3.5+5.5*r.nextDouble(); //(min+(max-min)*nextdouble)
+        this.chf=3.5+2.5*r.nextDouble(); //(min+(max-min)*nextdouble)
     }
     public void calcirubla()
     {   Random r = new Random();
 
-        this.ircc=r.nextDouble(); //(min+(max-min)*nextdouble)
+        this.rub=r.nextDouble(); //(min+(max-min)*nextdouble)
     }public void calciyeni()
     {   Random r = new Random();
 
-        this.ircc=3+4.5*r.nextDouble(); //(min+(max-min)*nextdouble)
+        this.jpy=3+1.5*r.nextDouble(); //(min+(max-min)*nextdouble)
     }public void calccoroana()
     {   Random r = new Random();
 
-        this.ircc=r.nextDouble(); //(min+(max-min)*nextdouble)
+        this.czk=r.nextDouble(); //(min+(max-min)*nextdouble)
     }public void calcaur()
     {   Random r = new Random();
 
-        this.ircc=200+400*r.nextDouble(); //(min+(max-min)*nextdouble)
+        this.gramaur=200+400*r.nextDouble(); //(min+(max-min)*nextdouble)
     }
 }

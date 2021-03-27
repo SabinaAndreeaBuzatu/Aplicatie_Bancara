@@ -1,5 +1,7 @@
 package ServiciiBancare;
 import Produs.*;
+import com.company.BNRval;
+
 public class SchimbValutar extends Tranzactie {
     Pair<Cont> tranz;
 
@@ -16,15 +18,6 @@ public class SchimbValutar extends Tranzactie {
         tranz.toString();
         return a.toString();
     }
-
-
-
-
-
-
-
-
-
 
 
 }
