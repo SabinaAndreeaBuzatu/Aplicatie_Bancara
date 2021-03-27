@@ -4,7 +4,7 @@ public class Extras  {
 
     protected String Data;
     protected Cont cont;
-    //vector tranzactii
+    protected Tranzactie[] traz;
 
     public Extras(String Data, Cont cont) {
         this.cont = cont;

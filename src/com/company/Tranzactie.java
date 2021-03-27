@@ -2,15 +2,15 @@ package com.company;
 
 import java.util.*;
 
-public class Tranzactie {
-    protected Pair<Cont> tranz;
+public abstract class Tranzactie {
+
     protected String DataTranzactie;
     protected String mesaj;
     protected double suma;
-
-    public Tranzactie(Pair<Cont> tranz, String DataTranzactie, String mesaj, double suma)
+    public Tranzactie(){}
+    public Tranzactie( String DataTranzactie, String mesaj, double suma)
     {
-        this.tranz=tranz;
+
         this.DataTranzactie=DataTranzactie;
         this.mesaj=mesaj;
         this.suma=suma;
@@ -39,8 +39,8 @@ public class Tranzactie {
     @Override
     public String toString() {
         StringBuilder a= new StringBuilder();
-        a.append("Tranzactia a fost facuta la data de "+DataTranzactie+ "avand mesajul '' "+mesaj + "''.");
-        tranz.toString();
+        a.append("Tranzactia a fost facuta la data de "+DataTranzactie+ " avand mesajul '' "+mesaj + "''.");
+
 
 
         return a.toString();

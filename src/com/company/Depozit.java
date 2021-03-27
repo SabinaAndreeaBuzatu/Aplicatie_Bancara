@@ -26,7 +26,14 @@ public class Depozit extends Cont {
 
         this.Sold=dobanda+Sold;
         }
+    @Override
+    public String toString() {
+        StringBuilder a= new StringBuilder();
+        a.append(super.toString());
+        a.append("Dobanda este  " + this.dobanda+ " si are atasat contul curent cu IBAN "+contc.IBAN);
 
+        return a.toString();
+    }
     public double getDobanda() {
         return dobanda;
     }

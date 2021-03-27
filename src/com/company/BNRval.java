@@ -7,11 +7,11 @@ public class BNRval {
     protected double ircc;
     protected double euro;
     protected double usd;
-    protected double lireS;
-    protected double francE;
-    protected double rublaR;
-    protected double yeniJ;
-    protected double coroanaCEHA;
+    protected double gbp;
+    protected double chf;
+    protected double rub;
+    protected double jpy;
+    protected double czk;
     protected double gramaur;
 
 
@@ -48,64 +48,64 @@ public class BNRval {
         return ircc;
     }
 
-    public void setCoroanaCEHA(double coroanaCEHA) {
-        this.coroanaCEHA = coroanaCEHA;
+    public void setczk(double czk) {
+        this.czk = czk;
     }
 
-    public double getCoroanaCEHA() {
-        return coroanaCEHA;
+    public double getczk() {
+        return czk;
     }
 
     public double getEuro() {
         return euro;
     }
 
-    public double getFrancE() {
-        return francE;
+    public double getchf() {
+        return chf;
     }
 
     public double getGramaur() {
         return gramaur;
     }
 
-    public double getLireS() {
-        return lireS;
+    public double getgbp() {
+        return gbp;
     }
 
     public double getUsd() {
         return usd;
     }
 
-    public double getRublaR() {
-        return rublaR;
+    public double getrub() {
+        return rub;
     }
 
-    public double getYeniJ() {
-        return yeniJ;
+    public double getjpy() {
+        return jpy;
     }
 
     public void setEuro(double euro) {
         this.euro = euro;
     }
 
-    public void setLireS(double lireS) {
-        this.lireS = lireS;
+    public void setgbp(double gbp) {
+        this.gbp = gbp;
     }
 
-    public void setFrancE(double francE) {
-        this.francE = francE;
+    public void setchf(double chf) {
+        this.chf = chf;
     }
 
-    public void setRublaR(double rublaR) {
-        this.rublaR = rublaR;
+    public void setrub(double rub) {
+        this.rub = rub;
     }
 
     public void setUsd(double usd) {
         this.usd = usd;
     }
 
-    public void setYeniJ(double yeniJ) {
-        this.yeniJ = yeniJ;
+    public void setjpy(double jpy) {
+        this.jpy = jpy;
     }
 
     public void setGramaur(double gramaur) {

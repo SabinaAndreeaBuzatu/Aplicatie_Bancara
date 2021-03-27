@@ -45,7 +45,7 @@ public class Client {
     @Override
     public String toString() {
         StringBuilder a= new StringBuilder();
-        a.append("Clientul: "+Nume+" "+Prenume+" avand CNP "+CNP+"si cu data nasterii "+DataNasterii);
+        a.append("\nClientul: "+Nume+" "+Prenume+" avand CNP "+CNP+" si data nasterii "+DataNasterii);
 
 
         return a.toString();

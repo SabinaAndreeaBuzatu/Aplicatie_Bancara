@@ -58,7 +58,7 @@ public abstract class Cont {
     public String gettipcont() {
         return tipcont;}
 
-    //public Card[] getcard() {return card;}
+    public Card[] getcard() {return card;}
     public void setIBAN(String IBAN) {
         this.IBAN = IBAN;
     }
@@ -139,13 +139,24 @@ public abstract class Cont {
     @Override
     public String toString() {
         StringBuilder a= new StringBuilder();
-        a.append("\n" + this.tipcont+" cu IBAN " +this.IBAN + ", Data deschiderii contului " + this.DataAcordare + ", Soldul curent este: " +this.Sold + " in valuta "+ Valuta + " si are un comision de administrare lunar de " +ComisionA+ Valuta);
-        a.append("\nAcesta are atasat " + this.nrcarduri + " carduri.\n");
+        a.append("\n" + this.tipcont+" cu IBAN " +this.IBAN + ", Data deschiderii contului " + this.DataAcordare + ", Soldul curent este: " +this.Sold + " in valuta "+ Valuta + " si are un comision de administrare lunar de " +comisionAdministrareCont()+ Valuta);
+        a.append("\nAcesta are atasat " + this.nrcarduri + " carduri.");
         for( int j=0; j< nrcarduri;j++)
 
             a.append("\n"+card[j]);
 
         return a.toString();
+    }
+
+    public void retragere(double suma){
+
+        if (Sold>=suma)
+            Sold=Sold-suma;
+    }
+    public void alimentare(double suma){
+
+
+            Sold=Sold+suma;
     }
     }
 
