@@ -4,9 +4,9 @@ public class Transfer extends Tranzactie {
 
     Pair<Cont> tranz;
 
-    public Transfer(Pair<Cont> tranz, String DataTranzactie, String mesaj, double suma) {
-        super(DataTranzactie, mesaj, suma);
-        this.tranz=tranz;
+    public Transfer(Cont c, Cont d, String DataTranzactie, String mesaj, double suma) {
+        super(c,DataTranzactie, mesaj, suma);
+        this.tranz= new Pair<>(c,d);
     }
     public Transfer(){ }
     public boolean egalitatevaluta()

@@ -1,20 +1,18 @@
 package ServiciiBancare;
 import Produs.*;
 public class Retragere extends Tranzactie {
-    protected Cont cont;
 
-    public Retragere(Cont cont,String DataTranzactie, String mesaj, double suma){
-        super(DataTranzactie,mesaj,suma);
-        this.cont=cont;
+
+    public Retragere(Cont c,String DataTranzactie, String mesaj, double suma){
+        super(c,DataTranzactie,mesaj,suma);
+
     }
-//service
-
 
     @Override
     public String toString() {
         StringBuilder a= new StringBuilder();
         a.append(super.toString());
-        a.append(" Din contul cu IBAN "+cont.getIBAN() +" a fost retrasa suma de "+suma+cont.getValuta() );
+        a.append(" Din contul cu IBAN "+c.getIBAN() +" a fost retrasa suma de "+suma+c.getValuta() );
 
 
         return a.toString();

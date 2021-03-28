@@ -1,5 +1,6 @@
 package Produs;
-import GenerareValori.BNRval;
+
+import GenerareValori.*;
 
 public abstract class Credit extends Cont{
 
@@ -7,6 +8,7 @@ public abstract class Credit extends Cont{
     protected double SumaAcordata;
     protected double dobanda;
     protected BNRval valori;
+    protected BancaVal valorib;
     protected ContCurent contc;
     protected double ratac;
     static int rateplatite;
@@ -19,6 +21,7 @@ public abstract class Credit extends Cont{
         this.SumaAcordata=SumaAcordata;
         this.ComisionA=comisionAdministrareCont();
         valori=new BNRval();
+        valorib=new BancaVal();
         this.contc=contc;
         calcrata();
         rateplatite=0;
@@ -52,15 +55,7 @@ public abstract class Credit extends Cont{
     {
         this.ratac=this.SumaAcordata/durataluni+dobanda*(durataluni-rateplatite);
     }
-    public void platarata(){
-        calcrata();
-        if(durataluni > rateplatite)
-            if(contc.getSold()>=ratac) {
-                contc.setSold(contc.getSold() - ratac);
-                rateplatite++;
-                System.out.println("Rata a fost colectata!:)");
-            }
-        else System.out.println("Fonduri insuficiente! Va rugam sa alimentati contul pentru a putea achita rata");
-    }
+
+    public abstract void platarata();
 
 }

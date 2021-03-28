@@ -4,19 +4,19 @@ import Produs.*;
 
 public class Alimentare extends Tranzactie {
 
-        protected Cont cont;
 
-        public Alimentare(Cont cont,String DataTranzactie, String mesaj, double suma){
-            super(DataTranzactie,mesaj,suma);
-            this.cont=cont;
+    public Alimentare(){}
+        public Alimentare(Cont c,String DataTranzactie, String mesaj, double suma){
+            super(c,DataTranzactie,mesaj,suma);
+
         }
-        //service
+
 
     @Override
     public String toString() {
         StringBuilder a= new StringBuilder();
         a.append(super.toString());
-        a.append(" Contul cu IBAN "+cont.getIBAN() +" a fost alimentat cu "+suma+cont.getValuta() );
+        a.append(" Contul cu IBAN "+c.getIBAN() +" a fost alimentat cu "+suma+c.getValuta() );
 
 
         return a.toString();

@@ -3,14 +3,14 @@ import Produs.*;
 import java.util.*;
 
 public abstract class Tranzactie {
-
+    protected Cont c;
     protected String DataTranzactie;
     protected String mesaj;
     protected double suma;
     public Tranzactie(){}
-    public Tranzactie( String DataTranzactie, String mesaj, double suma)
+    public Tranzactie( Cont c, String DataTranzactie, String mesaj, double suma)
     {
-
+        this.c=c;
         this.DataTranzactie=DataTranzactie;
         this.mesaj=mesaj;
         this.suma=suma;
@@ -34,6 +34,14 @@ public abstract class Tranzactie {
     }
     public void setsuma(double suma) {
         this.suma = suma;
+    }
+
+    public Cont getC() {
+        return c;
+    }
+
+    public void setC(Cont c) {
+        this.c = c;
     }
 
     @Override

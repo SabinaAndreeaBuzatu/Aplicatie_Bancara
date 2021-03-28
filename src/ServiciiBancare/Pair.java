@@ -19,4 +19,20 @@ public class Pair < Cont > {
 
         return a.toString();
     }
+
+    public Cont getDestinatie() {
+        return destinatie;
+    }
+
+    public Cont getSursa() {
+        return sursa;
+    }
+
+    public void setDestinatie(Cont destinatie) {
+        this.destinatie = destinatie;
+    }
+
+    public void setSursa(Cont sursa) {
+        this.sursa = sursa;
+    }
 }

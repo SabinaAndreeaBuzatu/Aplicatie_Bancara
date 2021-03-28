@@ -1,4 +1,5 @@
 package Produs;
+import GenerareValori.*;
 
 public class CreditFix extends Credit {
 
@@ -14,15 +15,26 @@ public class CreditFix extends Credit {
     @Override
     public double comisionAdministrareCont ()
     {
-        return 0.1*Sold;
+        return 0.01*Sold;
 
     }
     @Override
     public double dobanda ()
     {
-        return valori.getircc();
+        return valori.getircc()+valorib.getMarjacredit();
     }
+    @Override
+    public void platarata(){
 
+        calcrata();
+        if(durataluni > rateplatite)
+            if(contc.getSold()>=ratac) {
+                contc.setSold(contc.getSold() - ratac);
+                rateplatite++;
+                System.out.println("Rata a fost colectata!:)");
+            }
+            else System.out.println("Fonduri insuficiente! Va rugam sa alimentati contul pentru a putea achita rata");
+    }
 
 
 }

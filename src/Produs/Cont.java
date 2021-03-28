@@ -15,7 +15,7 @@ public abstract class Cont {
 
 
 
-
+    public Cont(){}
     public Cont(String IBAN, String Valuta, double Sold,int n, Card[] card,String DataAcordare) {
         this.card = new Card[n];
         this.IBAN = IBAN;
@@ -107,15 +107,23 @@ public abstract class Cont {
 
     public void adaugareCard(Card card)
 
-    {    int ok=1;
+    {
+        int ok=1;
         for (Card i: this.card)
         if(card.equals(i))
         {System.out.println("Cardul " + card.NrCard + "exista deja. Va rugam alegeti alt card");
         ok=0;}
-        if(ok==1) {
-            this.card[this.card.length]=card;
-        }
+        if(nrcarduri == 0)
+        {   this.card=new Card[100];
+            this.card[0]=card;
 
+        }
+        else
+        if(ok==1) {
+
+            this.card[nrcarduri]=card;
+        }
+        nrcarduri++;
 
     }
 

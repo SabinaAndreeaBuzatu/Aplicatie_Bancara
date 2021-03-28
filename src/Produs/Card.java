@@ -4,12 +4,12 @@ import java.util.Objects;
 
 public class Card {
     protected String NrCard;
-    protected int Pin;
-    protected int CVV;
+    protected String Pin;
+    protected String CVV;
     protected String DataExp;
 
 
-    public Card (String NrCard, int Pin , int CVV, String DataExp)
+    public Card (String NrCard, String Pin , String CVV, String DataExp)
     {
         this.NrCard=NrCard;
         this.Pin=Pin;
@@ -28,10 +28,10 @@ public class Card {
     {
         return DataExp;
     }
-    public int getCVV() {
+    public String getCVV() {
         return CVV;
     }
-    public int getPin() {
+    public String getPin() {
         return Pin;
     }
     public void setNrCard(String NrCard) {
@@ -41,10 +41,10 @@ public class Card {
     public void setDataExp(String DataExp) {
         this.DataExp = DataExp;
     }
-    public void setCVV(int CVV) {
+    public void setCVV(String CVV) {
         this.CVV = CVV;
     }
-    public void setPin(int Pin) {
+    public void setPin(String Pin) {
         this.Pin = Pin;
     }
     @Override

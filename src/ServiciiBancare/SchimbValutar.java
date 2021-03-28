@@ -4,9 +4,10 @@ import Produs.*;
 public class SchimbValutar extends Tranzactie {
     Pair<Cont> tranz;
 
-    public SchimbValutar(Pair<Cont> tranz, String DataTranzactie, String mesaj, double suma) {
-        super(DataTranzactie, mesaj, suma);
-        this.tranz=tranz;
+    public SchimbValutar(Cont c,Cont d, String DataTranzactie, String mesaj, double suma) {
+        super(c,DataTranzactie, mesaj, suma);
+         this.tranz= new Pair<>(c,d);
+
     }
     @Override
     public String toString() {
@@ -18,5 +19,11 @@ public class SchimbValutar extends Tranzactie {
         return a.toString();
     }
 
+    public Pair<Cont> getTranz() {
+        return tranz;
+    }
 
+    public void setTranz(Pair<Cont> tranz) {
+        this.tranz = tranz;
+    }
 }
