@@ -1,8 +1,8 @@
-package com.company;
+package ServiciiBancare;
 
 import Client.Client;
 import GenerareValori.BNRval;
-import ServiciiBancare.*;
+
 import Produs.*;
 
 
@@ -76,6 +76,17 @@ public class service {
         }
 
     }
+    public void AdaugareValori(InchiriereCutieValori c, double valoare)
+    {
+        c.setPragValoriDeclarat(c.getPragValoriDeclarat()+valoare);
+        System.out.println("Bunurile in valoare de "+ valoare +" a fost adaugat in cutia de valori");
 
+    }
+    public void RetragereValori(InchiriereCutieValori c, double valoare)
+    {    if(c.getPragValoriDeclarat()>=valoare)
+        c.setPragValoriDeclarat(c.getPragValoriDeclarat()-valoare);
+        System.out.println("Au fost retrase bunuri in valoare de "+valoare);
+
+    }
 
 }

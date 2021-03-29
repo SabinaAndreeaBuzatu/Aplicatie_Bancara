@@ -2,15 +2,17 @@ package Produs;
 
 
 public class InchiriereCutieValori {
-    protected double PragValoriDeclarat;
+    protected double pragValoriDeclarat;
+    protected String valuta;
     protected double comision;
     protected String DataAcordare;
     protected String Adresa;
     protected ContCurent contc;
 
-    public InchiriereCutieValori(double PragValoriDeclarat, String DataAcordare, String Adresa, ContCurent contc)
+    public InchiriereCutieValori(double pragValoriDeclarat, String valuta ,String DataAcordare, String Adresa, ContCurent contc)
     {
-        this.PragValoriDeclarat=PragValoriDeclarat;
+        this.pragValoriDeclarat=pragValoriDeclarat;
+        this.valuta=valuta;
         this.DataAcordare=DataAcordare;
         this.Adresa=Adresa;
         this.contc=contc;
@@ -21,7 +23,7 @@ public class InchiriereCutieValori {
 
     public double comision()
     {
-        return 0.1*PragValoriDeclarat;
+        return 0.1*pragValoriDeclarat;
     }
 
     public void setAdresa(String adresa) {
@@ -41,7 +43,7 @@ public class InchiriereCutieValori {
     }
 
     public double getPragValoriDeclarat() {
-        return PragValoriDeclarat;
+        return pragValoriDeclarat;
     }
 
     public void setContc(ContCurent contc) {
@@ -61,7 +63,7 @@ public class InchiriereCutieValori {
     }
 
     public void setPragValoriDeclarat(double pragValoriDeclarat) {
-        PragValoriDeclarat = pragValoriDeclarat;
+        pragValoriDeclarat = pragValoriDeclarat;
     }
 
 }
