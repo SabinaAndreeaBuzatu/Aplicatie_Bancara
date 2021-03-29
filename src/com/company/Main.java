@@ -48,17 +48,15 @@ public class Main {
  Cont d1= new Depozit("RO23BNCE090SV4004455100","RON",0,0,null,"29/03/2021",cont1);
  Alimentare a1= new Alimentare();
  a1=serv.alimentare(d1,"30/03/2021","tentativa de economisire",1000);
-///adauga tranzactie in extras
- //d1.alimentare(1000);
-d1.extras("29/3/2021");
-Retragere r1= new Retragere();
-r1=serv.Retragere(d1,"30/02/2021",":)",10);
+ d1.extras("29/3/2021");
+ Retragere r1= new Retragere();
+ r1=serv.Retragere(d1,"30/02/2021",":)",10);
 
 Transfer t=new Transfer();
 t= serv.transfer(d1,cont1,"30/03/2021","imprumut",100);
         d1.extras("30/3/2021");
 
-    Credit c1=new CreditFix("RO23BNCE024678004455100","CHF",100000,0,null,36,"12/02/2021",100000,cont3);
+    Credit c1=new CreditFix("RO23BNCE024678004455100","CHF",100,0,null,36,"12/02/2021",10,cont3);
     c1.retragere(1);
     System.out.println(c1.toString());
     c1.platarata();

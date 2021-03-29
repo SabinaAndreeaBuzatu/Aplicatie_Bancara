@@ -8,9 +8,10 @@ public class CreditFix extends Credit {
     public CreditFix(String IBAN, String Valuta, double Sold,int n, Card[] card , int durataluni, String DataAcordare, double SumaAcordata, ContCurent contc)
     {
         super(IBAN, Valuta,Sold, n, card , durataluni,DataAcordare,SumaAcordata,contc);
-        if(dobanda==0)
+
         this.dobanda=dobanda();
         this.tipcont="Credit cu dobanda fixa";
+        calcrata();
     }
     @Override
     public double comisionAdministrareCont ()
@@ -26,7 +27,6 @@ public class CreditFix extends Credit {
     @Override
     public void platarata(){
 
-        calcrata();
         if(durataluni > rateplatite)
             if(contc.getSold()>=ratac) {
                 contc.setSold(contc.getSold() - ratac);

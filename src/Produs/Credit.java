@@ -11,7 +11,7 @@ public abstract class Credit extends Cont{
     protected BancaVal valorib;
     protected ContCurent contc;
     protected double ratac;
-    static int rateplatite;
+    protected static int rateplatite;
 
 
     public Credit (String IBAN, String Valuta, double Sold,int n, Card[] card ,int durataluni, String DataAcordare, double SumaAcordata, ContCurent contc)
@@ -23,8 +23,9 @@ public abstract class Credit extends Cont{
         valori=new BNRval();
         valorib=new BancaVal();
         this.contc=contc;
-        calcrata();
         rateplatite=0;
+
+
 
 
 
@@ -53,7 +54,7 @@ public abstract class Credit extends Cont{
     }
     public void calcrata()
     {
-        this.ratac=this.SumaAcordata/durataluni+dobanda*(durataluni-rateplatite);
+        this.ratac=this.SumaAcordata/durataluni+dobanda*(SumaAcordata/durataluni*durataluni-rateplatite);
     }
 
     public abstract void platarata();
