@@ -34,6 +34,14 @@ public class InchiriereCutieValori {
         this.comision = comision;
     }
 
+    public String getValuta() {
+        return valuta;
+    }
+
+    public void setValuta(String valuta) {
+        this.valuta = valuta;
+    }
+
     public ContCurent getContc() {
         return contc;
     }

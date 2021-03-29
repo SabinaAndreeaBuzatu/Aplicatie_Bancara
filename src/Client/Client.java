@@ -1,4 +1,6 @@
 package Client;
+import Produs.Cont;
+
 import java.util.*;
 public class Client {
 
@@ -6,6 +8,7 @@ public class Client {
     protected String Prenume;
     protected String DataNasterii;
     protected String CNP;
+    protected ArrayList<Cont> Conturi;
 
 
 

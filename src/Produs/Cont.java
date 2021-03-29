@@ -64,6 +64,10 @@ public abstract class Cont {
     public String gettipcont() {
         return tipcont;}
 
+    public String getDataAcordare() {
+        return DataAcordare;
+    }
+
     public Card[] getcard() {return card;}
     public void setIBAN(String IBAN) {
         this.IBAN = IBAN;
@@ -82,8 +86,11 @@ public abstract class Cont {
     }
     public void settipcont(String tipcont) {this.tipcont=tipcont;}
 
+    public void setDataAcordare(String dataAcordare) {
+        DataAcordare = dataAcordare;
+    }
 
-    abstract public double comisionAdministrareCont ();
+    abstract public void comisionAdministrareCont ();
 
     public void adtranz(Tranzactie tranz)
     {int ok=1;
@@ -171,7 +178,7 @@ public abstract class Cont {
     @Override
     public String toString() {
         StringBuilder a= new StringBuilder();
-        a.append("\n" + this.tipcont+" cu IBAN " +this.IBAN + ", Data deschiderii contului " + this.DataAcordare + ", Soldul curent este: " +this.Sold + " in valuta "+ Valuta + " si are un comision de administrare lunar de " +comisionAdministrareCont()+ Valuta);
+        a.append("\n" + this.tipcont+" cu IBAN " +this.IBAN + ", Data deschiderii contului " + this.DataAcordare + ", Soldul curent este: " +this.Sold + " in valuta "+ Valuta + " si are un comision de administrare lunar de " +ComisionA+ Valuta);
         a.append("\nAcesta are atasat " + this.nrcarduri + " carduri.");
         for( int j=0; j< nrcarduri;j++)
 
@@ -195,6 +202,8 @@ public abstract class Cont {
 
             Sold=Sold+suma;
     }
+    public abstract void colectareComision();
+
     }
 
 

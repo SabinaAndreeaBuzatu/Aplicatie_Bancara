@@ -8,20 +8,21 @@ public class CreditFlex extends Credit {
         super(IBAN, Valuta, Sold, n, card, durataluni, DataAcordare, SumaAcordata,contc);
         if(dobanda==0)
         this.dobanda =dobanda();
+        calcrata();
 
         this.tipcont="Credit cu dobanda variabila";
     }
 
     @Override
-    public double comisionAdministrareCont() {
-        return 0.01 * Sold;
+    public void comisionAdministrareCont() {
+        this.ComisionA= 0.01 * Sold;
 
     }
 
     @Override
     public void platarata(){
 
-        calcrata();
+
         if(durataluni > rateplatite)
             if(contc.getSold()>=ratac) {
                 contc.setSold(contc.getSold() - ratac);
@@ -33,6 +34,12 @@ public class CreditFlex extends Credit {
     @Override
     public double dobanda() {
         return valori.getrobor()+valorib.getMarjacredit();
+    }
+
+    @Override
+    public void colectareComision(){
+
+        this.contc.Sold-=getComisionA();
     }
 
 }

@@ -12,11 +12,12 @@ public class CreditFix extends Credit {
         this.dobanda=dobanda();
         this.tipcont="Credit cu dobanda fixa";
         calcrata();
+
     }
     @Override
-    public double comisionAdministrareCont ()
+    public void comisionAdministrareCont ()
     {
-        return 0.01*Sold;
+        this.ComisionA= 0.01*Sold;
 
     }
     @Override
@@ -34,6 +35,11 @@ public class CreditFix extends Credit {
                 System.out.println("Rata a fost colectata!:)");
             }
             else System.out.println("Fonduri insuficiente! Va rugam sa alimentati contul pentru a putea achita rata");
+    }
+    @Override
+    public void colectareComision(){
+
+        this.contc.setSold(contc.getSold()-ComisionA);
     }
 
 

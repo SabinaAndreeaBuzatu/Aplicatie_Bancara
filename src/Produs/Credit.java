@@ -19,7 +19,6 @@ public abstract class Credit extends Cont{
         super( IBAN, Valuta, Sold, n, card, DataAcordare);
         this.durataluni=durataluni;
         this.SumaAcordata=SumaAcordata;
-        this.ComisionA=comisionAdministrareCont();
         valori=new BNRval();
         valorib=new BancaVal();
         this.contc=contc;
@@ -35,6 +34,14 @@ public abstract class Credit extends Cont{
     public double getSumaAcordata()
     {
         return SumaAcordata;
+    }
+
+    public int getDurataluni() {
+        return durataluni;
+    }
+
+    public void setDurataluni(int durataluni) {
+        this.durataluni = durataluni;
     }
 
     public double getDobanda() {

@@ -6,10 +6,10 @@ import GenerareValori.BNRval;
 import Produs.*;
 
 
-public class service {
+public class Service {
 
 
-    public service(){}
+    public Service(){}
 
     public Transfer transfer(Cont sursa, Cont destinatie , String DataTranzactie, String mesaj, double suma)  {
 

@@ -1,5 +1,7 @@
 package Validari;
 
+import Produs.InchiriereCutieValori;
+
 public class ValidareInchiriereCutieValori {
     public void vDataAcordare(String DataAcordare) {
         if (!DataAcordare.matches("^([0123]\\d)[- /.]([01]\\d)[- /.]([012]\\d\\d\\d)$"))
@@ -18,10 +20,14 @@ public class ValidareInchiriereCutieValori {
 
     public void vAdresa(String adresa) {
         if (!adresa.matches("^[#.0-9a-zA-Z\\s,-]+$"))
-            System.out.println("Valuta nu este valida");
+            System.out.println("Adresa nu este valida");
     }
-    public void vCNP(String cnp) {
-        if (!cnp.matches("\"^[0-9]+$\""))
-            System.out.println("CNP-ul nu este valid");
+    public void vComplet(InchiriereCutieValori c){
+
+
+        vDataAcordare(c.getDataAcordare());
+        vPrag(c.getPragValoriDeclarat());
+        vAdresa(c.getAdresa());
+        vValuta(c.getValuta());
     }
 }

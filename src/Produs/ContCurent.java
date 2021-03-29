@@ -11,13 +11,14 @@ public class ContCurent extends Cont {
      this.client=client;
          this.tipcont="Cont curent";
 
+
      }
 
 
 
     @Override
-    public double comisionAdministrareCont() {
-        return 5;
+    public void comisionAdministrareCont() {
+        this.ComisionA= 5;
     }
 
     @Override
@@ -29,6 +30,11 @@ public class ContCurent extends Cont {
 
 
         return a.toString();
+    }
+    @Override
+    public void colectareComision(){
+
+         this.Sold=this.Sold-this.ComisionA;
     }
     }
 

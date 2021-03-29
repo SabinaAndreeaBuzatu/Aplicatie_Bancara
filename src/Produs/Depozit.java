@@ -14,9 +14,9 @@ public class Depozit extends Cont {
         }
 
        @Override
-       public double comisionAdministrareCont()
+       public void comisionAdministrareCont()
         {
-           return 0;
+           this.ComisionA= 0;
         }
         public double calcdobanda ()
         {
@@ -41,5 +41,10 @@ public class Depozit extends Cont {
     public void setDobanda(double dobanda)
     {
         this.dobanda=dobanda;
+    }
+    @Override
+    public void colectareComision(){
+
+        this.contc.Sold-=getComisionA();
     }
 };
