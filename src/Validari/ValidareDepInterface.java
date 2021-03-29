@@ -1,6 +1,6 @@
 package Validari;
 
-import Produs.Depozit;
+import Produse.Depozit;
 
 public interface ValidareDepInterface {
     public void vComplet(Depozit c);

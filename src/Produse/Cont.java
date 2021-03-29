@@ -1,4 +1,4 @@
-package Produs;
+package Produse;
 
 import ServiciiBancare.Extras;
 import ServiciiBancare.Tranzactie;

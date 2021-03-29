@@ -1,5 +1,5 @@
 package ServiciiBancare;
-import Produs.*;
+import Produse.*;
 public class Transfer extends Tranzactie {
 
     Pair<Cont> tranz;

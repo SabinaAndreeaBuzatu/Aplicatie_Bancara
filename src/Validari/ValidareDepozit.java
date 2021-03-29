@@ -1,7 +1,6 @@
 package Validari;
 
-import Produs.Cont;
-import Produs.Depozit;
+import Produse.Depozit;
 
 public class ValidareDepozit extends ValidareCont implements ValidareDepInterface {
 

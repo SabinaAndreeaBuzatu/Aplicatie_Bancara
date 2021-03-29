@@ -1,9 +1,8 @@
 package ServiciiBancare;
 
-import Client.Client;
 import GenerareValori.BNRval;
 
-import Produs.*;
+import Produse.*;
 
 
 public class Service {

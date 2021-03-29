@@ -1,6 +1,5 @@
 package ServiciiBancare;
-import Produs.*;
-import java.util.*;
+import Produse.*;
 
 public abstract class Tranzactie {
     protected Cont c;

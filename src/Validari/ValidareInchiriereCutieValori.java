@@ -1,6 +1,6 @@
 package Validari;
 
-import Produs.InchiriereCutieValori;
+import Produse.InchiriereCutieValori;
 
 public class ValidareInchiriereCutieValori {
     public void vDataAcordare(String DataAcordare) {

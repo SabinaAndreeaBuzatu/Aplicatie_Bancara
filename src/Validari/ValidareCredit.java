@@ -1,5 +1,5 @@
 package Validari;
-import Produs.*;
+import Produse.*;
 public class ValidareCredit extends ValidareCont{
     public void vDurataLuni(double durataluni) {
         if (durataluni < 0)

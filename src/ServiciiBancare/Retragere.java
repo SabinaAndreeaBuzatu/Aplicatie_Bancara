@@ -1,5 +1,5 @@
 package ServiciiBancare;
-import Produs.*;
+import Produse.*;
 public class Retragere extends Tranzactie {
 
     public Retragere(){}

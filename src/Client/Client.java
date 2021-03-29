@@ -1,5 +1,5 @@
 package Client;
-import Produs.Cont;
+import Produse.Cont;
 
 import java.util.*;
 public class Client {

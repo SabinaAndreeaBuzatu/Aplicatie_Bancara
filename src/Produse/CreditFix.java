@@ -1,5 +1,4 @@
-package Produs;
-import GenerareValori.*;
+package Produse;
 
 public class CreditFix extends Credit {
 

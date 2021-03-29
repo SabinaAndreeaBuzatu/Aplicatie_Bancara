@@ -1,4 +1,4 @@
-package Produs;
+package Produse;
 
 public class CreditFlex extends Credit {
 

@@ -1,5 +1,5 @@
 package Validari;
-import Produs.*;
+import Produse.*;
 public class ValidareCont {
 
 

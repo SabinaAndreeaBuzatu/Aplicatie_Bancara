@@ -1,5 +1,5 @@
 package ServiciiBancare;
-import Produs.*;
+
 public class Pair < Cont > {
     protected Cont sursa;
     protected Cont destinatie;

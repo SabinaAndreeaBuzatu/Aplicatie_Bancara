@@ -1,6 +1,6 @@
 package ServiciiBancare;
 
-import Produs.*;
+import Produse.*;
 
 public class Alimentare extends Tranzactie {
 
