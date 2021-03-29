@@ -1,5 +1,8 @@
 package Produs;
 
+import ServiciiBancare.Extras;
+import ServiciiBancare.Tranzactie;
+
 import java.util.*;
 
 public abstract class Cont {
@@ -12,6 +15,8 @@ public abstract class Cont {
     protected double ComisionA;
     protected String DataAcordare;
     protected String tipcont;
+
+    protected Extras extras;
 
 
 
@@ -27,6 +32,7 @@ public abstract class Cont {
             this.card[i]=card[i];
         comisionAdministrareCont();
         this.DataAcordare=DataAcordare;
+        extras=new Extras();
 
 
 
@@ -78,6 +84,24 @@ public abstract class Cont {
 
 
     abstract public double comisionAdministrareCont ();
+
+    public void adtranz(Tranzactie tranz)
+    {int ok=1;
+        for (Card i: this.card)
+            if(extras.getTraz().equals(i))
+            {System.out.println("Tranzactie exista deja. Va rugam alegeti alta tranzactie");
+                ok=0;}
+        if(extras.getNrtranz()== 0)
+        {   this.extras.setTraz(new Tranzactie[100]);
+            this.extras.adaugatranz(tranz);
+
+        }
+        else
+        if(ok==1) {
+
+            this.extras.adaugatranz(tranz);
+        }
+        }
 
     @Override
     public boolean equals(Object obj) {
@@ -156,6 +180,11 @@ public abstract class Cont {
         return a.toString();
     }
 
+    public void extras(String Data){
+        extras.setData(Data);
+        System.out.println(extras.toString());
+
+    }
     public void retragere(double suma){
 
         if (Sold>=suma)

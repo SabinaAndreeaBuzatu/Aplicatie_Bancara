@@ -2,7 +2,7 @@ package ServiciiBancare;
 import Produs.*;
 public class Retragere extends Tranzactie {
 
-
+    public Retragere(){}
     public Retragere(Cont c,String DataTranzactie, String mesaj, double suma){
         super(c,DataTranzactie,mesaj,suma);
 

@@ -10,21 +10,17 @@ public class service {
 
 
     public service(){}
-//    public void CreareContCurent(String IBAN, String Valuta, double Sold, int n, Card[] card, String DataAcordare, Client client)
-//    public void CreareDepozit(){}
-//    public void CreareCreditFix(){}
-//    public void CreareCreditFlex(){}
-//    public void CreareInchiriereCutieValori(){}
-//    public void CreareExtras(){}
-//    public void CreareClinent(){}
-//    public void CreareCard(){}
+
     public Transfer transfer(Cont sursa, Cont destinatie , String DataTranzactie, String mesaj, double suma)  {
-        Pair<Cont> p =new Pair<>(sursa,destinatie);
-        Transfer t=new Transfer();
+
+        Transfer t =new Transfer(sursa,destinatie,DataTranzactie,mesaj,suma);;
+
         if (t.egalitatevaluta()) {
             {  t=new Transfer(sursa,destinatie,DataTranzactie,mesaj,suma);
             sursa.setSold( sursa.getSold()- suma);
                 destinatie.setSold( destinatie.getSold()+ suma);
+                sursa.adtranz(t);
+                destinatie.adtranz(t);
             return t;}
     }
         else
@@ -54,6 +50,8 @@ public class service {
         for (int i=0;i<4;i++)
             for (int j=0;j<4;j++)
             System.out.println(val[i][j]);
+        sursa.adtranz(t);
+        destinatie.adtranz(t);
             return t;
 
     }
@@ -62,12 +60,14 @@ public class service {
      {
          cont.setSold( cont.getSold()+ suma);
          Alimentare a = new Alimentare(cont, DataTranzactie, mesaj,  suma);
+         cont.adtranz(a);
          return a;
      }
     public Retragere Retragere(Cont cont, String DataTranzactie, String mesaj, double suma)
     {  if(cont.getSold()>=suma)
     { cont.setSold( cont.getSold()- suma);
         Retragere a = new Retragere(cont, DataTranzactie, mesaj,  suma);
+        cont.adtranz(a);
         return a;}
         else {     System.out.println("Fonduri insuficiente");
 

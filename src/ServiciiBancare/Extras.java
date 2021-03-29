@@ -3,25 +3,59 @@ import Produs.*;
 public class Extras  {
 
     protected String Data;
-    protected Cont cont;
+    protected int nrtranz;
     protected Tranzactie[] traz;
 
-    public Extras(String Data, Cont cont,Tranzactie[] traz) {
+    public Extras(){
+        traz=new Tranzactie[100];
+    }
+    public Extras(String Data,Tranzactie[] traz) {
 
-        this.cont = cont;
+
         this.Data = Data;
 
-        for(int i=0;i<traz.length;i++)
-            if(traz[i].equals(cont))
+
         this.traz=traz;
-            else
-                System.out.println("O tranzactie nu apartine contului de la care se doreste extrasul");
 
     }
     public String getData(){ return Data;}
 
-    public Cont getCont() {
-        return cont;
+
+
+    public Tranzactie[] getTraz() {
+        return traz;
     }
 
+    public void setTraz(Tranzactie[] traz) {
+        this.traz = traz;
+    }
+    public void adaugatranz(Tranzactie t)
+    { traz[nrtranz]=t;
+    nrtranz++;
+
+    }
+
+    public int getNrtranz() {
+        return nrtranz;
+    }
+
+    public void setData(String data) {
+        Data = data;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder a= new StringBuilder();
+
+        a.append("\nData eliberarii extrasului "+Data);
+        a.append("\nTranzactii: " );
+        for( int j=0; j< nrtranz;j++)
+
+            a.append("\n"+traz[j]);
+
+
+
+
+        return a.toString();
+    }
 }
