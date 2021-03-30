@@ -188,8 +188,13 @@ public class Main {
 
 
 //Afisare extras
-        System.out.println("\n*Afisare extras de cont\n *");
+        System.out.println("\n*Afisare extras de cont*\n ");
         cont1.extras("30/03/2021");
+        System.out.println("\n");
+        c1.extras("30/03/2021");
+        System.out.println("\n");
+        d1.extras("30/03/2021");
+
 
     }
 }

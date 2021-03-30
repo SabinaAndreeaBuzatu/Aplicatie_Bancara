@@ -48,10 +48,13 @@ public class Extras  {
         StringBuilder a= new StringBuilder();
 
         a.append("Data eliberarii extrasului "+Data);
+        if(nrtranz==0)
+            a.append("\nNu exista tranzactii");
+        else{
         a.append("\nTranzactii: " );
         for( int j=0; j< nrtranz;j++)
 
-            a.append("\n"+traz[j]);
+            a.append("\n"+traz[j]);}
 
 
 
