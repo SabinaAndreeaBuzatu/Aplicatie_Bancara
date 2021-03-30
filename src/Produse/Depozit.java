@@ -44,7 +44,11 @@ public class Depozit extends Cont {
     }
     @Override
     public void colectareComision(){
+        if(contc.Sold>=ComisionA)
+        { this.contc.setSold(contc.getSold()-ComisionA);
+            System.out.println("Comisionul a fost colectat:)");}
+        else
+            System.out.println("Fonduri insuficiente! Va rugam sa alimentati contul pentru a putea achita comisionul de administrare");
 
-        this.contc.Sold-=getComisionA();
     }
 };

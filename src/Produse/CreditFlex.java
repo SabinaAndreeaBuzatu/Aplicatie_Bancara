@@ -6,8 +6,7 @@ public class CreditFlex extends Credit {
 
     public CreditFlex( String IBAN, String Valuta, double Sold, int n, Card[] card, int durataluni, String DataAcordare, double SumaAcordata,ContCurent contc) {
         super(IBAN, Valuta, Sold, n, card, durataluni, DataAcordare, SumaAcordata,contc);
-        if(dobanda==0)
-        this.dobanda =dobanda();
+        dobanda();
         calcrata();
 
         this.tipcont="Credit cu dobanda variabila";
@@ -28,18 +27,30 @@ public class CreditFlex extends Credit {
                 contc.setSold(contc.getSold() - ratac);
                 rateplatite++;
                 System.out.println("Rata a fost colectata!:)");
+                dobanda();
+
+                calcrata();
+
             }
             else System.out.println("Fonduri insuficiente! Va rugam sa alimentati contul pentru a putea achita rata");
     }
     @Override
-    public double dobanda() {
-        return valori.getrobor()+valorib.getMarjacredit();
+    public void dobanda() {
+    valori.calcrobor();  valorib.marja();
+         this.dobanda=valori.getrobor()+valorib.getMarjacredit();
+
+
+
     }
 
     @Override
     public void colectareComision(){
+        if(contc.Sold>=ComisionA)
+        { this.contc.setSold(contc.getSold()-ComisionA);
+        System.out.println("Comisionul a fost colectat:)");}
+        else
+            System.out.println("Fonduri insuficiente! Va rugam sa alimentati contul pentru a putea achita comisionul de administrare");
 
-        this.contc.Sold-=getComisionA();
     }
 
 }

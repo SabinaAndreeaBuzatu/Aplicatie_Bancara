@@ -30,7 +30,7 @@ public abstract class Credit extends Cont{
 
     }
 
-     public abstract double dobanda();
+     public abstract void dobanda();
     public double getSumaAcordata()
     {
         return SumaAcordata;

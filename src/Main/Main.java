@@ -1,4 +1,4 @@
-package com.company;
+package Main;
 
 import Client.Client;
 import Produse.*;
@@ -28,7 +28,7 @@ public class Main {
   v1.vComplet(client3);
 
 
-  ContCurent cont1=new ContCurent("RO23BNCE4679556772220000","RON",0,0,null,"29/03/2021",client1);
+  ContCurent cont1=new ContCurent("RO23BNCE4679556772220000","RON",500,0,null,"29/03/2021",client1);
   ContCurent cont2=new ContCurent("RO23BNCE0507775482925130","RON",100000,0,null,"28/03/2021",client2);
   ContCurent cont3=new ContCurent("RO23BNCE1208838620085100","RON",1.78,0,null,"27/03/2021",client3);
   ContCurent cont4=new ContCurent("RO23BNCE0900955100985180","USD",1000,0,null,"29/03/2021",client1);
@@ -106,21 +106,91 @@ public class Main {
         c2.colectareComision();
         System.out.println(cont4);
 
+//Colectarea comisionului de administrare al cutiei de valori ( se colecteaza din contul curent atasat)
+        System.out.println("\n*Colectarea comisionului de administrare al cutiei de valori*");
+        System.out.println(i1);
+        System.out.println(cont1);
+        System.out.println("\n");
+        i1.colectareComision();
+        System.out.println(cont1);
+
+
+
 //Incercare de colectare a ratei unui credit cu dobanda fixa si alimentarea contului curent atasat
         System.out.println("\n*Colectarea ratei unui credit cu dobanda fixa*");
         System.out.println(c1);
         System.out.println("\n");
         c1.platarata();
-        System.out.println("\n");
         Alimentare a2=new Alimentare();
         a2=serv.alimentare(cont3, "30/03/2021","plata rata",3000);
         System.out.println(a2);
         c1.platarata();
         System.out.println(cont3);
 
+//Incercare de colectare a ratei unui credit cu dobanda variabila si alimentarea contului curent atasat
+//Vom colecta 2 rate pentru a vedea cum se schimba dobanda si, in consecinta, rata
+        System.out.println("\n*Colectarea ratei unui credit cu dobanda variabila*");
+        System.out.println(c2);
+        System.out.println("\n");
+        c2.platarata();
+        Alimentare a3=new Alimentare();
+        a3=serv.alimentare(cont4, "30/03/2021","plata rata",30000);
+        System.out.println(a3);
+        c2.platarata();
+        System.out.println(c2);
+        c2.platarata();
+        System.out.println(cont4);
+
+//Adaugare bunuri la cutia de valori
+        System.out.println("\n*Adaugare bunuri la cutia de valori *");
+        System.out.println(i1);
+        serv.AdaugareValori(i1,1000);
+        System.out.println(i1);
+
+//Retragere bunuri din cutia de valori
+        System.out.println("\n*Retragere bunuri din cutia de valori*");
+        System.out.println(i1);
+        serv.RetragereValori(i1,1000);
+        System.out.println(i1);
+
+//Transfer intre 2 conturi cu aceeasi valuta
+        System.out.println("\n*Transfer intre 2 conturi *");
+        System.out.println(cont1);
+        System.out.println(d1);
+        Transfer t1 = new Transfer();
+        t1= serv.transfer(cont1,d1,"30/03/2021","economii :) ",100);
+        //transferul o sa fie esuat pentru ca sunt fuonduri insufieciente
+        serv.NullException(t1);
+        Alimentare a4=new Alimentare();
+        a4=serv.alimentare(cont1, "30/03/2021","plata rata",300);
+        t1= serv.transfer(cont1,d1,"30/03/2021","economii :) ",100);
+        serv.NullException(t1);
+        System.out.println(cont1);
+        System.out.println(d1);
+
+//Incercarea unui transfer intre 2 conturi cu valuta diferita
+        System.out.println("\n*Transfer intre 2 conturi *");
+        System.out.println(cont1);
+        System.out.println(cont4);
+        Transfer t2 = new Transfer();
+        t2= serv.transfer(cont1,cont4,"30/03/2021","economii :) ",100);
+        serv.NullException(t2);
 
 
+//Transfer folosind Schimb Valutar
+        System.out.println("\n*Transfer intre 2 conturi cu valuta diferita folosind schimb valutar *");
+        System.out.println(cont1);
+        System.out.println(cont4);
+        SchimbValutar s2 = new SchimbValutar();
+        s2= serv.SchimbValutar(cont1,cont4,"30/03/2021","economii in valuta diferita:) ",100);
+        serv.NullException(s2);
+        System.out.println(cont1);
+        System.out.println(cont4);
 
+
+//Afisare extras
+        System.out.println("\n*Afisare extras de cont\n *");
+        cont1.extras("30/03/2021");
 
     }
 }

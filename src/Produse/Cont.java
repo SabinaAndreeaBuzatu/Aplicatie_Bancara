@@ -189,6 +189,7 @@ public abstract class Cont {
 
     public void extras(String Data){
         extras.setData(Data);
+        System.out.println("Extras pentru contul cu IBAN "+IBAN);
         System.out.println(extras.toString());
 
     }

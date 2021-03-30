@@ -47,7 +47,7 @@ public class Extras  {
     public String toString() {
         StringBuilder a= new StringBuilder();
 
-        a.append("\nData eliberarii extrasului "+Data);
+        a.append("Data eliberarii extrasului "+Data);
         a.append("\nTranzactii: " );
         for( int j=0; j< nrtranz;j++)
 

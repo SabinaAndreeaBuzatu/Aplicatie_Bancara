@@ -16,14 +16,14 @@ public class InchiriereCutieValori {
         this.DataAcordare=DataAcordare;
         this.Adresa=Adresa;
         this.contc=contc;
-        this.comision=comision();
+        comision();
 
 
     }
 
-    public double comision()
+    public void comision()
     {
-        return 0.1*pragValoriDeclarat;
+        this.comision= 0.1*pragValoriDeclarat;
     }
 
     public void setAdresa(String adresa) {
@@ -71,7 +71,26 @@ public class InchiriereCutieValori {
     }
 
     public void setPragValoriDeclarat(double pragValoriDeclarat) {
-        pragValoriDeclarat = pragValoriDeclarat;
+        this.pragValoriDeclarat= pragValoriDeclarat;
+
+    }
+
+    public void colectareComision(){
+        if(contc.Sold>=comision)
+        { this.contc.setSold(contc.getSold()-comision);
+            System.out.println("Comisionul a fost colectat:)");}
+        else
+            System.out.println("Fonduri insuficiente! Va rugam sa alimentati contul pentru a putea achita comisionul de administrare");
+
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder a= new StringBuilder();
+
+        a.append("\nPragul de valori declarat este  " + this.pragValoriDeclarat+ valuta+". Contul are un comision de asdministrare de "+comision+valuta+". Data acordarii cutiei este "+DataAcordare+" iar adresa sucursalei la care se afla cutia este "+Adresa+". Comisionul de administrare va fi colectat din contul curent cu IBAN "+ contc.getIBAN());
+
+        return a.toString();
     }
 
 }

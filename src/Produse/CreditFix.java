@@ -8,7 +8,7 @@ public class CreditFix extends Credit {
     {
         super(IBAN, Valuta,Sold, n, card , durataluni,DataAcordare,SumaAcordata,contc);
 
-        this.dobanda=dobanda();
+        dobanda();
         this.tipcont="Credit cu dobanda fixa";
         calcrata();
 
@@ -20,10 +20,11 @@ public class CreditFix extends Credit {
 
     }
     @Override
-    public double dobanda ()
+    public void dobanda ()
     {
-        return valori.getircc()+valorib.getMarjacredit();
-    }
+        this.dobanda= valori.getircc()+valorib.getMarjacredit();
+    }///marja credit e o valoare arbitrara aleasa de banca
+    ///ircc este o valoare data de BNR in urma unor indicatori
     @Override
     public void platarata(){
 
@@ -37,8 +38,12 @@ public class CreditFix extends Credit {
     }
     @Override
     public void colectareComision(){
+        if(contc.Sold>=ComisionA)
+        { this.contc.setSold(contc.getSold()-ComisionA);
+            System.out.println("Comisionul a fost colectat:)");}
+        else
+            System.out.println("Fonduri insuficiente! Va rugam sa alimentati contul pentru a putea achita comisionul de administrare");
 
-        this.contc.setSold(contc.getSold()-ComisionA);
     }
 
 

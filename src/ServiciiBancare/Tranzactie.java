@@ -46,7 +46,7 @@ public abstract class Tranzactie {
     @Override
     public String toString() {
         StringBuilder a= new StringBuilder();
-        a.append("Tranzactia a fost facuta la data de "+DataTranzactie+ " avand mesajul '' "+mesaj + "''.");
+        a.append("\nTranzactia a fost facuta la data de "+DataTranzactie+ " avand mesajul '' "+mesaj + "''.");
 
 
 
