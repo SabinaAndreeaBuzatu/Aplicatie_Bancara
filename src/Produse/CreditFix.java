@@ -22,7 +22,7 @@ public class CreditFix extends Credit {
     @Override
     public void dobanda ()
     {
-        this.dobanda= valori.getircc()+valorib.getMarjacredit();
+        this.dobanda= Math.round(valori.getircc()+valorib.getMarjacredit()*100)/100.0;
     }///marja credit e o valoare arbitrara aleasa de banca
     ///ircc este o valoare data de BNR in urma unor indicatori
     @Override

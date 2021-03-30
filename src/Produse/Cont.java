@@ -193,16 +193,7 @@ public abstract class Cont {
         System.out.println(extras.toString());
 
     }
-    public void retragere(double suma){
 
-        if (Sold>=suma)
-            Sold=Sold-suma;
-    }
-    public void alimentare(double suma){
-
-
-            Sold=Sold+suma;
-    }
     public abstract void colectareComision();
 
     }

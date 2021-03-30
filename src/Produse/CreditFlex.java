@@ -37,7 +37,7 @@ public class CreditFlex extends Credit {
     @Override
     public void dobanda() {
     valori.calcrobor();  valorib.marja();
-         this.dobanda=valori.getrobor()+valorib.getMarjacredit();
+         this.dobanda=Math.round(valori.getrobor()+valorib.getMarjacredit()*100)/100.0;
 
 
 

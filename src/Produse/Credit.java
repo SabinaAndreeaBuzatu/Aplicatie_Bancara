@@ -61,7 +61,7 @@ public abstract class Credit extends Cont{
     }
     public void calcrata()
     {
-        this.ratac=this.SumaAcordata/durataluni+dobanda/100*(SumaAcordata/durataluni*durataluni-rateplatite);
+        this.ratac=Math.round(this.SumaAcordata/durataluni+dobanda/100*(SumaAcordata/durataluni*durataluni-rateplatite)*100)/100.0;
     }
 
     public abstract void platarata();
