@@ -78,7 +78,7 @@ public class Main {
 //Alimentarea unui cont
         System.out.println("\n*Alimentarea unui cont*");
         System.out.println(d1);
-        Alimentare a1=new Alimentare();
+        Alimentare a1;
         a1=serv.alimentare(d1, "30/03/2021","economii",1000);
         System.out.println("\n"+a1);
         System.out.println(d1);
@@ -86,7 +86,7 @@ public class Main {
 //Retragerea dintr-un cont
         System.out.println("\n*Retragerea dintr-un cont*");
         System.out.println(c2);
-        Retragere r1=new Retragere();
+        Retragere r1;
         r1=serv.Retragere(c2,"30/03/2021"," de o acadea ", 1);
         System.out.println("\n"+r1);
         System.out.println(c2) ;
@@ -121,7 +121,7 @@ public class Main {
         System.out.println(c1);
         System.out.println("\n");
         c1.platarata();
-        Alimentare a2=new Alimentare();
+        Alimentare a2;
         a2=serv.alimentare(cont3, "30/03/2021","plata rata",3000);
         System.out.println(a2);
         c1.platarata();
@@ -133,7 +133,7 @@ public class Main {
         System.out.println(c2);
         System.out.println("\n");
         c2.platarata();
-        Alimentare a3=new Alimentare();
+        Alimentare a3;
         a3=serv.alimentare(cont4, "30/03/2021","plata rata",30000);
         System.out.println(a3);
         c2.platarata();
@@ -157,12 +157,11 @@ public class Main {
         System.out.println("\n*Transfer intre 2 conturi *");
         System.out.println(cont1);
         System.out.println(d1);
-        Transfer t1 = new Transfer();
+        Transfer t1 ;
         t1= serv.transfer(cont1,d1,"30/03/2021","economii :) ",100);
         //transferul o sa fie esuat pentru ca sunt fuonduri insufieciente
         serv.NullException(t1);
-        Alimentare a4=new Alimentare();
-        a4=serv.alimentare(cont1, "30/03/2021","plata rata",300);
+        serv.alimentare(cont1, "30/03/2021","plata rata",300);
         t1= serv.transfer(cont1,d1,"30/03/2021","economii :) ",100);
         serv.NullException(t1);
         System.out.println(cont1);
@@ -172,7 +171,7 @@ public class Main {
         System.out.println("\n*Transfer intre 2 conturi *");
         System.out.println(cont1);
         System.out.println(cont4);
-        Transfer t2 = new Transfer();
+        Transfer t2 ;
         t2= serv.transfer(cont1,cont4,"30/03/2021","economii :) ",100);
         serv.NullException(t2);
 
@@ -181,7 +180,7 @@ public class Main {
         System.out.println("\n*Transfer intre 2 conturi cu valuta diferita folosind schimb valutar *");
         System.out.println(cont1);
         System.out.println(cont4);
-        SchimbValutar s2 = new SchimbValutar();
+        SchimbValutar s2;
         s2= serv.SchimbValutar(cont1,cont4,"30/03/2021","economii in valuta diferita:) ",100);
         serv.NullException(s2);
         System.out.println(cont1);
