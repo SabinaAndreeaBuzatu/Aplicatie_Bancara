@@ -1,5 +1,5 @@
 package Produse;
-
+import Validari.*;
 import GenerareValori.*;
 
 public abstract class Credit extends Cont{

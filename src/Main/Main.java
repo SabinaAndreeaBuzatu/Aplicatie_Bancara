@@ -16,6 +16,7 @@ public class Main {
         ValidareCredit v3=new ValidareCredit();
         ValidareInchiriereCutieValori v4=new ValidareInchiriereCutieValori();
         ValidareDepozit v5=new ValidareDepozit();
+        ValidareCard v6 = new ValidareCard();
 
 
   Client client1=new Client("Buzatu","Andreea-Sabina","15/01/2000","6001501004653");
@@ -40,11 +41,18 @@ public class Main {
   v2.vComplet(cont4);
 
   Card card1=new Card("4244 5643 8870 1002","0917","801","10/22");
-  Card card2=new Card("5543 7683 1112 7802","0000","456","29/30");
+  Card card2=new Card("5543 7683 1112 7802","0000","456","09/25");
   Card card3=new Card("6578 9898 3332 0022","4567","328","10/24");
-  Card card4=new Card("9989 2246 7878 1110","9876","762","1/32");
-  Card card5=new Card("5909 7737 3456 1234","5678","937","9/21");
+  Card card4=new Card("9989 2246 7878 1110","9876","762","01/32");
+  Card card5=new Card("5909 7737 3456 1234","5678","937","09/21");
   Card card6=new Card("1234 5678 9101 1121","1726","076","12/25");
+
+  v6.vComplet(card1);
+  v6.vComplet(card2);
+  v6.vComplet(card3);
+  v6.vComplet(card4);
+  v6.vComplet(card5);
+  v6.vComplet(card6);
 
   Credit c1=new CreditFix("RO23BNCE024678004455100","CHF",100,0,null,36,"12/02/2021",100,cont3);
   Credit c2=new CreditFlex("RO23BNCE02467806547894","USD",10000,0,null,12,"22/02/2021",10000,cont4);
