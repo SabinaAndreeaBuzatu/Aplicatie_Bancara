@@ -11,6 +11,8 @@ public class Main {
 
         Service serv= new Service();
 
+        // validarile ar trebui folosite in serviciu...
+        // validarile nu le consider operatiuni. Ele sunt pentru a valida anumite operatiuni
         ValidareClient v1=new ValidareClient();
         ValidareCont v2=new ValidareCont();
         ValidareCredit v3=new ValidareCredit();

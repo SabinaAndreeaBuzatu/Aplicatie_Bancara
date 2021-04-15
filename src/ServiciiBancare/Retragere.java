@@ -2,7 +2,7 @@ package ServiciiBancare;
 import Produse.*;
 public class Retragere extends Tranzactie {
 
-    public Retragere(){}
+    public Retragere(){} // daca nu ai nevoie de acesti constructori default, nu i mai adauga
     public Retragere(Cont c,String DataTranzactie, String mesaj, double suma){
         super(c,DataTranzactie,mesaj,suma);
 

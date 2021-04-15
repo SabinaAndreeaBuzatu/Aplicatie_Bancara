@@ -55,7 +55,8 @@ public class Card {
 
     @Override
     public boolean equals(Object obj) {
-        if(this!=obj)
+        if(this!=obj) // compari referinte, daca nu ii dai exact aceeasi referinta ca this, equals o sa iti intoarca false mereu
+            // proiectul este individual :) am mai gasit aceeasi logica in equals in alt proiect
             return false;
         if(obj==null)
             return false;
@@ -67,11 +68,10 @@ public class Card {
             return false;
         if(!Objects.equals(this.DataExp, c.DataExp))
             return false;
-        if(this.Pin!= c.Pin)
+        if(this.Pin!= c.Pin) // cand faci string != string ce compari mai exact? valoare sau referinta?
             return false;
         if(this.CVV!= c.CVV)
             return false;
         return true;
     }
-
 }

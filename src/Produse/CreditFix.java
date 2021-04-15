@@ -1,5 +1,6 @@
 package Produse;
 
+// o mostenire ca la carte - felicitari :)
 public class CreditFix extends Credit {
 
 

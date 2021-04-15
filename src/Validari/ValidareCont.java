@@ -17,7 +17,7 @@ public class ValidareCont {
         if (Sold < 0)
             System.out.println("Soldul nu este valid");
     }
-
+// mi-ar fi placut sa aveti un array cu valute si sa va asigurati ca "Alabala" nu e o valuta
     public void vValuta(String Valuta) {
         if (!Valuta.matches("^[A-Z]+$"))
             System.out.println("Valuta nu este valida");

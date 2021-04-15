@@ -14,6 +14,7 @@ public class Transfer extends Tranzactie {
     public boolean egalitatevaluta()
 
     {
+        // poti sa simplifici acest if cu return tranz.sursa.getValuta().equals(tranz.destinatie.getValuta()
         if( tranz.sursa.getValuta().equals(tranz.destinatie.getValuta()))
             return true;
         else

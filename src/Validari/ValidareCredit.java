@@ -1,5 +1,7 @@
 package Validari;
 import Produse.*;
+
+// de ce extinde ValidareCont daca nu folosesti nimic din parinte?
 public class ValidareCredit extends ValidareCont{
     public void vDurataLuni(double durataluni) {
         if (durataluni < 0)

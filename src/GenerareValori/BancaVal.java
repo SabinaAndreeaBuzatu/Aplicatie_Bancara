@@ -4,6 +4,7 @@ import java.util.Random;
 
 public class BancaVal {
     protected double marjacredit;
+    // camelCase -> marjaCredit
 
     public BancaVal()
     {marja();}

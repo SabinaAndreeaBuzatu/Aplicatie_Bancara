@@ -1,6 +1,5 @@
 package Produse;
 
-
 public class InchiriereCutieValori {
     protected double pragValoriDeclarat;
     protected String valuta;

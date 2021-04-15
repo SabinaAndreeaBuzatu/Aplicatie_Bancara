@@ -11,6 +11,7 @@ public abstract class Credit extends Cont{
     protected BancaVal valorib;
     protected ContCurent contc;
     protected double ratac;
+    // de ce este static?
     protected static int rateplatite;
 
 

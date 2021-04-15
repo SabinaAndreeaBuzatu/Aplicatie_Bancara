@@ -1,16 +1,15 @@
 package Client;
+// numele pachetelor este format numai din litere mici
 import Produse.Cont;
 
 import java.util.*;
 public class Client {
-
+// variabilele ar trebui sa fie private ca sa realizezi o incapsulare
     protected String Nume;
+    // numele variabilelor incep cu litere mici
     protected String Prenume;
     protected String DataNasterii;
     protected String CNP;
-    
-
-
 
     public Client( String Nume, String Prenume, String DataNasterii, String CNP )
     {

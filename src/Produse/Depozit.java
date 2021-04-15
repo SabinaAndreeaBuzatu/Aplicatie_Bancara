@@ -3,7 +3,7 @@ package Produse;
 
 public class Depozit extends Cont {
     protected double dobanda;
-    protected ContCurent contc;
+    protected ContCurent contc; // depozitul in sine e un cont, de ce ai nevoie de cont in cont?
 
     public Depozit(String IBAN, String Valuta, double Sold, int n, Card[] card, String DataAcordare, ContCurent contc)
         {

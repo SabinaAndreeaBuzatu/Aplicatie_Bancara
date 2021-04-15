@@ -2,10 +2,11 @@ package Produse;
 
 import Client.Client;
 
+// mie mi se pare ca un Client are un cont, nu un cont are un client
 public class ContCurent extends Cont {
     protected Client client;
 
-
+// who is n? foloseste cuvinte
      public ContCurent(String IBAN, String Valuta, double Sold,int n, Card[] card, String DataAcordare,Client client)
      {super(IBAN, Valuta,  Sold, n, card, DataAcordare);
      this.client=client;

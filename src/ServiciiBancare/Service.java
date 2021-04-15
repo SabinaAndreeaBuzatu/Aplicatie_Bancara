@@ -4,13 +4,18 @@ import GenerareValori.BNRval;
 
 import Produse.*;
 
-
+// ai 6 operatii din 10
 public class Service {
 
 
     public Service(){}
     public void NullException(Transfer t)
     {
+        // inteleg ce ai facut dar nu-mi place.
+        // in primul rand nu vad rostul system.out-ului in try.
+        // in general aruncam exceptii cand ceva este invalid, si apoi prindem acele exceptii unde are sens sa le prindem
+        // inteleg ca vrei sa te asiguri ca nimic nu e null, dar nu asa se face
+        // 2 puteai sa faci o singura metoda de genul asta care primeste ca parametru Tranzactie, pentru ca ambele (transfer si schimb valutar extind tranzactie)
         try{System.out.println(t.toString());}
         catch(NullPointerException e){ System.out.println("\nTransferul este invalid");
 
@@ -37,6 +42,7 @@ public class Service {
                 destinatie.adtranz(t);
             return t;}
             else {System.out.println("\nFonduri insuficiente ");
+            // pentru etapa urmatoare, inlocuieste toate system out-urile cu niste exceptii
             return null;}}
     }
         else

@@ -1,5 +1,6 @@
 package ServiciiBancare;
 
+// I am impressed
 public class Pair < Cont > {
     protected Cont sursa;
     protected Cont destinatie;

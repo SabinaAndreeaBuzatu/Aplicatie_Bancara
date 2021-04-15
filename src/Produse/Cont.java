@@ -9,7 +9,7 @@ public abstract class Cont {
 
     protected String IBAN;
     protected String Valuta;
-    protected double Sold;
+    protected double Sold; // pentru precizie ai fi putut sa folosesti un Wrapper (ex BigDecimal)
     protected int nrcarduri;
     protected Card[] card;
     protected double ComisionA;
@@ -26,10 +26,12 @@ public abstract class Cont {
         this.IBAN = IBAN;
         this.Valuta = Valuta;
         this.Sold = Sold;
+        // cum te asiguri tu ca nrCarduri si card.length sunt egale? ca eu pot sa apelez constructorul cu nrCarduri 12 si sa dau un array de 2 carduri si o sa-ti crape cu ArrayIndexOutOfBoundsException la card[i]
         nrcarduri=n;
         for(int i=0;i<nrcarduri;i++)
 
-            this.card[i]=card[i];
+            this.card[i]=card[i]; // foloseste intotdeauna {} pentru instructiuni chiar daca ai doar o linie de cod in bloc
+        // nu inteleg de ce ai nevoie sa iterezi si sa adaugi asa cand poti pur si simplu sa zici this.card = card (care btw ar trb sa fie a plural - cards)
         comisionAdministrareCont();
         this.DataAcordare=DataAcordare;
         extras=new Extras();
@@ -92,10 +94,11 @@ public abstract class Cont {
 
     abstract public void comisionAdministrareCont ();
 
+    // camelCaaase - addTransaction - foloseste tot cuvantul
     public void adtranz(Tranzactie tranz)
     {int ok=1;
         for (Card i: this.card)
-            if(extras.getTraz().equals(i))
+            if(extras.getTraz().equals(i)) // compari un array de tranzactii cu un obiect de tip Card?
             {System.out.println("Tranzactie exista deja. Va rugam alegeti alta tranzactie");
                 ok=0;}
         if(extras.getNrtranz()== 0)
@@ -159,11 +162,18 @@ public abstract class Cont {
     }
 
     public void stergeCard(Card card)
-    {
+    { // acolada de deschidere ramane pe acelasi rand cu metoda/instuctiunea in java
+
+        // asa de multa logica :(
+        // recomand ca limita pentru for sa folosesti this.card.length
+
         int ok=1;
         for (int i=0;i<this.nrcarduri;i++)
         {if(card.equals(this.card[i]))
         {ok=0;
+//        this.card[i] = null;
+//        nrcarduri--;
+            // nu inteleg de ce ti-a mai trebuit al doilea for
               for( int j=i; j< this.nrcarduri-1;j++)
             {   this.card[j]=this.card[j+1];
 
