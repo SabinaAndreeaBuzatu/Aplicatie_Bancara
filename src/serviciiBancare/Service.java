@@ -124,6 +124,7 @@ public class Service {
 
     }
     public void adaugareCard(Card card, Cont cont) {
+
         int ok = 1;
         for (Card i : cont.getcard())
             if (card.equals(i)) {
@@ -186,6 +187,7 @@ public class Service {
         { credit.getContc().setSold(credit.getContc().getSold()-credit.getComisionA());
             c.setSold(c.getSold()-credit.getComisionA());
             System.out.println("Comisionul a fost colectat:)");
+            audit.Audit("Colectarea comisionului de administrare al unui cont de credit");
              return c;}
         else {
             System.out.println("Fonduri insuficiente! Va rugam sa alimentati contul pentru a putea achita comisionul de administrare");
@@ -197,6 +199,7 @@ public class Service {
         if(c.getSold()>=c.getComisionA())
         { c.setSold(c.getSold()-c.getComisionA());
         System.out.println("Comisionul a fost colectat:)");
+            audit.Audit("Colectarea comisionului de administrare al unui cont curent");
        return c;}
         else { System.out.println("Fonduri insuficiente! Va rugam sa alimentati contul pentru a putea achita comisionul de administrare");
             return c;}
@@ -206,6 +209,7 @@ public class Service {
         if(c.getSold()>=cutie.getComision())
         { c.setSold(c.getSold()-cutie.getComision());
             System.out.println("Comisionul a fost colectat:)");
+            audit.Audit("Colectarea comisionului de administrare al unei cutii de valori");
             return c;}
         else {
             System.out.println("Fonduri insuficiente! Va rugam sa alimentati contul pentru a putea achita comisionul de administrare");

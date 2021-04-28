@@ -1,12 +1,15 @@
-Alimentare,17:56:21 28/04/2021
-Retragere,17:56:21 28/04/2021
-Alimentare,17:56:21 28/04/2021
-Colectarea ratei pentru un credit cu dobanda variabila,17:56:21 28/04/2021
-Alimentare,17:56:21 28/04/2021
-Colectarea ratei pentru un credit cu dobanda variabila,17:56:21 28/04/2021
-Adaugare in cutia de valori,17:56:21 28/04/2021
-Retragere din cutia de valori,17:56:21 28/04/2021
-Transfer,17:56:21 28/04/2021
-Alimentare,17:56:21 28/04/2021
-Transfer,17:56:21 28/04/2021
-Schimb Valutar,17:56:21 28/04/2021
+Alimentare,18:11:21 28/04/2021
+Retragere,18:11:21 28/04/2021
+Colectarea comisionului de administrare al unui cont curent,18:11:21 28/04/2021
+Colectarea comisionului de administrare al unui cont de credit,18:11:21 28/04/2021
+Colectarea comisionului de administrare al unei cutii de valori,18:11:21 28/04/2021
+Alimentare,18:11:21 28/04/2021
+Colectarea ratei pentru un credit cu dobanda variabila,18:11:21 28/04/2021
+Alimentare,18:11:21 28/04/2021
+Colectarea ratei pentru un credit cu dobanda variabila,18:11:21 28/04/2021
+Adaugare in cutia de valori,18:11:21 28/04/2021
+Retragere din cutia de valori,18:11:21 28/04/2021
+Transfer,18:11:21 28/04/2021
+Alimentare,18:11:21 28/04/2021
+Transfer,18:11:21 28/04/2021
+Schimb Valutar,18:11:21 28/04/2021
