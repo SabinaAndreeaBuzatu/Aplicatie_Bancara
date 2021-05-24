@@ -60,7 +60,7 @@ public class Main {
         List <InchiriereCutieValori> cutii=c.CitireCutie(conturiCurente);
         v4.vListComplet(cutii);
 
-            System.out.println(conturi);
+
 
 
   Client client1=new Client("Buzatu","Maria-Sabina","15/01/2000","6001501004653");
@@ -107,8 +107,8 @@ public class Main {
       v6.vComplet(card5);
       v6.vComplet(card6);
 
-      Credit c1=new CreditFix("RO23BNCE024678004455100","CHF",100,0,null,36,"12/02/2021",100,cont3.getIBAN());
-      Credit c2=new CreditFlex("RO23BNCE02467806547894","USD",10000,0,null,12,"22/02/2021",10000,cont4.getIBAN());
+      Credit c1=new CreditFix("RO23BNCE02467800445510000","CHF",100,0,null,36,"12/02/2021",100,cont3.getIBAN());
+      Credit c2=new CreditFlex("RO23BNCE0246780654789400","USD",10000,0,null,12,"22/02/2021",10000,cont4.getIBAN());
       serv.adaugareCard(card6,c1);
 
       v3.vComplet(c1);
@@ -209,7 +209,7 @@ public class Main {
 //Stergerea unui card atasat unui cont
         System.out.println("\n*Stergerea unui card*");
         System.out.println(dbConturiCurente.get(3));
-        serv.stergeCard(dbcarduri.get(4),dbConturiCurente.get(3));
+        serv.stergeCard(dbcarduri.get(5),dbConturiCurente.get(3));
         System.out.println(dbConturiCurente.get(3));
 
 //Alimentarea unui cont
@@ -239,10 +239,10 @@ public class Main {
 
         System.out.println("\n*Colectarea comisionului de administrare al contului de credit*");
         System.out.println(dbcredite.get(1));
-        System.out.println(dbConturiCurente.get(1));
-        List<ContCurent> aux= (List<ContCurent>)( List<?>)dbConturiCurente;
-        serv.colectareComisionCredit(aux,(Credit) dbcredite.get(1));
-        System.out.println(dbConturiCurente.get(1));
+       serv.alimentare( dbConturic.get(3),"30/03/2021","comision",100);
+      System.out.println(dbConturic.get(3));
+        serv.colectareComisionCredit(dbConturic,(Credit) dbcredite.get(1));
+        System.out.println(dbConturic.get(3));
 
 //Colectarea comisionului de administrare al cutiei de valori ( se colecteaza din contul curent atasat)
         System.out.println("\n*Colectarea comisionului de administrare al cutiei de valori*");
@@ -343,6 +343,7 @@ public class Main {
         dbserv.deleteDepozit((Depozit) dbdep.get(0));
         dbdep= dbserv.readAllDepozit();
         System.out.println(dbdep);
+        dbserv.addDepozit((Depozit) d1);
 //Stergerea unei cutii din baza de date
         System.out.println(dbcutii);
         dbserv.deleteCutie(i1);

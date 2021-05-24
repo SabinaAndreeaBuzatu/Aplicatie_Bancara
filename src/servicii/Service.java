@@ -182,8 +182,9 @@ public class Service {
                     credit.setRatePlatite(credit.getRatePlatite() + 1);
                     System.out.println("Rata a fost colectata!:)");
                     audit.Audit("Colectarea ratei pentru un credit cu dobanda variabila");
-                    credit.calcrata();
                     credit.dobanda();
+                    credit.calcrata();
+
                 } else
                     System.out.println("Fonduri insuficiente! Va rugam sa alimentati contul curent pentru a putea achita rata");
         }}
