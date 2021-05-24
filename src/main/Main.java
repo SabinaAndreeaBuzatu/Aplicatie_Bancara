@@ -137,6 +137,9 @@ public class Main {
       dbConturi.add(cont2);
       dbConturi.add(cont3);
       dbConturi.add(cont4);
+      dbConturi.add(c1);
+      dbConturi.add(c2);
+        dbConturi.add(d1);
       List<ContCurent> dbConturic=new ArrayList<>();
         dbConturic.add(cont1);
         dbConturic.add(cont2);
@@ -173,7 +176,7 @@ public class Main {
 //Update Credit
          Credit cr=new CreditFix("RO23BNCE024678004455100","CHF",100,0,null,36,"12/03/2021",100,cont3.getIBAN());
          dbserv.updateCredit(cr);
-//UPDATE CARD
+
 
 //Citire clienti din baza de date
         List<Client> dbclienti=dbserv.readAllClient();
