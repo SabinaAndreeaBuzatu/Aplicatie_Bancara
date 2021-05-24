@@ -1,6 +1,7 @@
 package main;
 
 import client.Client;
+
 import fisiere.Citire;
 import fisiere.Scriere;
 import produse.*;
@@ -64,7 +65,7 @@ public class Main {
 
   Client client1=new Client("Buzatu","Maria-Sabina","15/01/2000","6001501004653");
   Client client2=new Client("Gheorghe","Dragos-Stefan","01/06/2000","6000106007821");
-  Client client3=new Client("Popescu","Raluca-Ioana","13/02/1996","60013025541");
+  Client client3=new Client("Popescu","Raluca-Ioana","13/02/1996","6001302554199");
 
 //validare client
   v1.vComplet(client1);
@@ -123,6 +124,7 @@ public class Main {
 
       //Adaugare in baza de date
       DBService dbserv=new DBService();
+      dbserv.clearDB();
       dbserv.addClient(client1);
       dbserv.addClient(client2);
       dbserv.addClient(client3);
@@ -166,10 +168,10 @@ public class Main {
         client1=new Client("Buzatu","Andreea-Sabina","15/01/2000","6001501004653");
         dbserv.updateClient(client1);
 //Update esuat Cont Curent pentru ca introducem un IBAN gresit
-        ContCurent cont=new ContCurent("RO23BNCE467955677222000","RON",600,0,null,"29/03/2021",client1.getCNP());
-        dbserv.updateCont(cont);
-        cont=new ContCurent("RO23BNCE4679556772220000","RON",600,0,null,"29/03/2021",client1.getCNP());
-        dbserv.updateCont(cont);
+         ContCurent crr=new ContCurent("RO23BNCE467955677222000","RON",600,0,null,"29/03/2021",client1.getCNP());
+        dbserv.updateCont(crr);
+          crr=new ContCurent("RO23BNCE4679556772220000","RON",700,0,null,"29/03/2021",client1.getCNP());
+        dbserv.updateCont(crr);
 //Update Depozit
          Depozit d= new Depozit("RO23BNCE4673456772220990","RON",100,0,null,"29/03/2021",cont1.getIBAN());
          dbserv.updateDepozit(d);
@@ -179,56 +181,30 @@ public class Main {
 
 
 //Citire clienti din baza de date
+        System.out.println("\n*Clientii din baza de date*");
         List<Client> dbclienti=dbserv.readAllClient();
         System.out.println(dbclienti);
 //Citirea conturilor curente din baza de date
+        System.out.println("\n*Conturile curente din baza de date*");
         List<Cont> dbConturiCurente=dbserv.readAllContCurent();
         System.out.println(dbConturiCurente);
 //Citirea depozitelor din baza de date
+        System.out.println("\n*Depozitele din baza de date*");
         List<Cont> dbdep= dbserv.readAllDepozit();
         System.out.println(dbdep);
 //Citirea creditelor din baza de date
+        System.out.println("\n*Creditele din baza de date*");
         List<Cont> dbcredite= dbserv.readAllCredit();
         System.out.println(dbcredite);
 //Citirea cutiilor din baza de date
+        System.out.println("\n*Cutiile de valori din baza de date*");
         List<InchiriereCutieValori> dbcutii= dbserv.readAllCutie();
-       // System.out.println(dbcutii);
+        System.out.println(dbcutii);
 //Citirea cardurilor din baza de date
+        System.out.println("\n*Cardurile din baza de date*");
         List<Card> dbcarduri=dbserv.readAllCard();
         for(int i=0;i<dbcarduri.size();i++)
         System.out.println(dbcarduri.get(i));
-////Stergerea unui credit si a tuturor cardurilor atasate
-//        System.out.println(dbcredite);
-//        dbserv.deleteCredit((Credit)dbcredite.get(0));
-//        dbcredite= dbserv.readAllCredit();
-//        System.out.println(dbcredite);
-////Stergerea unui depozit din baza de date si a tuturor cardurilor atasate
-//        System.out.println(dbdep);
-//        dbserv.deleteDepozit((Depozit) dbdep.get(0));
-//        dbdep= dbserv.readAllDepozit();
-//        System.out.println(dbdep);
-//        //il adaugam inapoi pentru ca avem nevoie mai tarziu
-//        dbserv.addDepozit((Depozit) d1);
-//        dbdep=dbserv.readAllDepozit();
-////Stergerea unei cutii din baza de date
-//        System.out.println(dbcutii);
-//        dbserv.deleteCutie(i1);
-//        dbcutii= dbserv.readAllCutie();
-//        System.out.println(dbcutii);
-////Stergerea unui cont curent si a tuturor conturilor si cardurilor atasate
-//        System.out.println("Contul curent:");
-//        System.out.println(dbConturiCurente);
-//        System.out.println("Depozit atasat:");
-//        System.out.println(dbdep);
-//        dbserv.deleteCont((ContCurent) dbConturiCurente.get(3));
-//        dbConturiCurente= dbserv.readAllContCurent();
-//        dbdep=dbserv.readAllDepozit();
-//        System.out.println("Contul curent:");
-//        System.out.println(dbConturiCurente);
-//        System.out.println("Depozit atasat:");
-//        System.out.println(dbdep);
-////Stergerea unui client si a tuturor conturilor si cardurilor acestuia
-//        dbserv.deleteClient(clienti.get(2));
 
 //Stergerea unui card atasat unui cont
         System.out.println("\n*Stergerea unui card*");
@@ -354,6 +330,47 @@ public class Main {
         dbConturic.get(0).extras("30/03/2021");
         System.out.println("\n");
         dbdep.get(0).extras("30/03/2021");
+//
+//Stergerea unui credit si a tuturor cardurilor atasate
+        System.out.println("\n*Stergerea unui credit din baza de date*");
+        System.out.println(dbcredite);
+        dbserv.deleteCredit((Credit)dbcredite.get(0));
+        dbcredite= dbserv.readAllCredit();
+        System.out.println(dbcredite);
+//Stergerea unui depozit din baza de date si a tuturor cardurilor atasate
+        System.out.println("\n*Stergerea unui depozit din baza de date*");
+        System.out.println(dbdep);
+        dbserv.deleteDepozit((Depozit) dbdep.get(0));
+        dbdep= dbserv.readAllDepozit();
+        System.out.println(dbdep);
+//Stergerea unei cutii din baza de date
+        System.out.println(dbcutii);
+        dbserv.deleteCutie(i1);
+        dbcutii= dbserv.readAllCutie();
+        System.out.println(dbcutii);
+//Stergerea unui cont curent si a tuturor conturilor si cardurilor atasate
+        System.out.println("\n*Stergerea unui cont curent din baza de date*");
+        System.out.println("Contul curent:");
+        System.out.println(dbConturiCurente);
+        System.out.println("Depozit atasat:");
+        System.out.println(dbdep);
+        dbserv.deleteCont((ContCurent) dbConturiCurente.get(3));
+        dbConturiCurente= dbserv.readAllContCurent();
+        dbdep=dbserv.readAllDepozit();
+        System.out.println("Contul curent:");
+        System.out.println(dbConturiCurente);
+        System.out.println("Depozit atasat:");
+        System.out.println(dbdep);
+//Stergerea unui client si a tuturor conturilor si cardurilor acestuia
+        dbserv.deleteClient(clienti.get(2));
+//Stergerea tuturor creditelor
+        dbserv.deleteallCredit();
+//Stergerea tuturor depozitelor
+        dbserv.deleteallDepozit();
+//Stergerea tuturor conturilor curent
+        dbserv.deleteallContCurent();
+//Stergerea tuturor clientilor
+        dbserv.deleteallClient();
 
 
 //Scriere in fisiere
@@ -365,7 +382,7 @@ public class Main {
        s.ScriereCutie(cutii);
        s.ScriereCompleta(cutii, null, conturiCurenteSiCarduri.getFirst(), conturiSiCarduri.getFirst(), clienti);
 
-       System.out.println(c1);
+       //System.out.println(c1);
 
 
    }
