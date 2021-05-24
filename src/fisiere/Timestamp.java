@@ -10,7 +10,7 @@ import java.time.format.DateTimeFormatter;
 public class Timestamp {
 
    public Timestamp()
-    { try { FileWriter x = new FileWriter( System.getProperty("user.dir") + "\\src\\fisiere\\audit\\Audit.txt");
+    { try { FileWriter x = new FileWriter( System.getProperty("user.dir") + "\\src\\fisiere\\audit\\Audit.csv");
 
         x.write("");
         x.close();
@@ -24,7 +24,7 @@ public class Timestamp {
     public void Audit(String actiune) {
 
         try {
-        BufferedWriter Audit = new BufferedWriter(new FileWriter(System.getProperty("user.dir") + ("\\src\\fisiere\\audit\\Audit.txt"),true));
+        BufferedWriter Audit = new BufferedWriter(new FileWriter(System.getProperty("user.dir") + ("\\src\\fisiere\\audit\\Audit.csv"),true));
         LocalDateTime timp = LocalDateTime.now();
         DateTimeFormatter formatare = DateTimeFormatter.ofPattern("HH:mm:ss dd/MM/yyyy");
         String timpformatat = timp.format(formatare);

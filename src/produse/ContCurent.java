@@ -3,14 +3,14 @@ package produse;
 import client.Client;
 
 public class ContCurent extends Cont {
-    protected Client client = new Client();
+    protected String CNP;
 
     public ContCurent() {
     }
 
-    public ContCurent(String IBAN, String Valuta, double Sold, int n, Card[] card, String DataAcordare, Client client) {
+    public ContCurent(String IBAN, String Valuta, double Sold, int n, Card[] card, String DataAcordare, String CNP) {
         super(IBAN, Valuta, Sold, n, card, DataAcordare);
-        setClient(client);
+        this.CNP=CNP;
         this.tipcont = "Cont curent";
 
 
@@ -26,26 +26,23 @@ public class ContCurent extends Cont {
     public String toString() {
         StringBuilder a = new StringBuilder();
         a.append(super.toString());
-        a.append(client.toString());
+        a.append("Contul apartine clientului cu CNP: "+CNP);
 
 
         return a.toString();
     }
 
     @Override
-    public void setContCurent(ContCurent c) {
+    public void setIBANcontc(String c) {
 
     }
 
-    public Client getClient() {
-        return client;
+    public String getCNP() {
+        return CNP;
     }
 
-    public void setClient(Client c) {
-        this.client.setNume(c.getNume());
-        this.client.setPrenume(c.getPrenume());
-        this.client.setCNP(c.getCNP());
-        this.client.setDataNasterii(c.getDataNasterii());
+    public void setcnp(String CNP) {
+       this.CNP=CNP;
 
     }
 

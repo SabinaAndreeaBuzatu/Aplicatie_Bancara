@@ -1,11 +1,11 @@
-package serviciiBancare;
+package servicii;
 import fisiere.Timestamp;
 import generareValori.BNRval;
 
 import produse.*;
+import servicii.serviciiBancare.*;
 
-import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 
 public class Service {
@@ -87,7 +87,7 @@ public class Service {
 
     }
 
-     public Alimentare alimentare(Cont cont,String DataTranzactie, String mesaj, double suma)
+     public Alimentare alimentare(Cont cont, String DataTranzactie, String mesaj, double suma)
      {   audit.Audit("Alimentare");
          cont.setSold( cont.getSold()+ suma);
          Alimentare a = new Alimentare(cont, DataTranzactie, mesaj,  suma);
@@ -131,7 +131,7 @@ public class Service {
                 System.out.println("Cardul " + card.getNrCard()+ "exista deja. Va rugam alegeti alt card");
                 ok = 0;
             }
-        if (cont.getnrcarduri() == 0||ok==1) {
+        if (cont.getcard().size() == 0||ok==1) {
             audit.Audit("Adaugare card");
             cont.setCardelem(card);
 
@@ -141,14 +141,14 @@ public class Service {
     }
     public void stergeCard(Card card,Cont cont) {
         int ok = 1;
-        for (int i = 0; i < cont.getnrcarduri(); i++) {
-            if (card.equals(cont.getcard().get(i))) {
+        for (int i = 0; i < cont.getcard().size(); i++) {
+            if (card.getNrCard().equals(cont.getcard().get(i).getNrCard())) {
                 audit.Audit("Stergere card");
                 ok = 0;
                 cont.StergereCard(i);
-
+                cont.setnrcarduri(cont.getnrcarduri()-1);
                 }
-               cont.setnrcarduri(cont.getnrcarduri()-1);
+
             }
 
         if (ok == 1) {
@@ -157,21 +157,28 @@ public class Service {
         }
     }
 
-    public void platarata(Credit credit) {
-        if (credit.gettipcont().equals("Credit cu dobanda fixa")) {
-            if (credit.getDurataluni() > credit.getRatePlatite())
-                if (credit.getContc().getSold() >= credit.getRatac()) {
-                    credit.getContc().setSold(credit.getContc().getSold() - credit.getRatac());
-                    credit.setRatePlatite(credit.getRatePlatite() + 1);
-                    System.out.println("Rata a fost colectata!:)");
-                    audit.Audit("Colectarea ratei pentru un credit cu dobanda fixa");
-                } else
+    public  List <ContCurent>  platarata(Credit credit, List <ContCurent> contc) {
+        ContCurent x =new ContCurent(); int j=-1;
+        for(ContCurent i:contc)
+            if(!(i.getIBAN().equals(credit.getIBANcontc())))
+             j++;
+        else {
+
+                if (credit.gettipcont().equals("Credit cu dobanda fixa")) {
+                    if (credit.getDurataluni() > credit.getRatePlatite())
+                        if (i.getSold() >= credit.getRatac()) {
+                            contc.get(j+1).setSold(contc.get(j+1).getSold() - credit.getRatac());
+                            credit.setRatePlatite(credit.getRatePlatite() + 1);
+                            System.out.println("Rata a fost colectata!:)");
+                            audit.Audit("Colectarea ratei pentru un credit cu dobanda fixa");
+                        }
+                else
                     System.out.println("Fonduri insuficiente! Va rugam sa alimentati contul curent pentru a putea achita rata");
-        } else if ((credit.gettipcont().equals("Credit cu dobanda variabila"))) {
+            }  else if ((credit.gettipcont().equals("Credit cu dobanda variabila"))) {
 
             if (credit.getDurataluni() > credit.getRatePlatite())
-                if (credit.getContc().getSold() >= credit.getRatac()) {
-                    credit.getContc().setSold(credit.getContc().getSold() - credit.getRatac());
+                if (i.getSold() >= credit.getRatac()) {
+                    contc.get(j+1).setSold(contc.get(j+1).getSold() - credit.getRatac());
                     credit.setRatePlatite(credit.getRatePlatite() + 1);
                     System.out.println("Rata a fost colectata!:)");
                     audit.Audit("Colectarea ratei pentru un credit cu dobanda variabila");
@@ -179,20 +186,27 @@ public class Service {
                     credit.dobanda();
                 } else
                     System.out.println("Fonduri insuficiente! Va rugam sa alimentati contul curent pentru a putea achita rata");
-        }
+        }}
+        return  contc;
     }
 
-    public Cont colectareComisionCredit(Cont c,Credit credit){
-        if(c.getSold()>=credit.getComisionA())
-        { credit.getContc().setSold(credit.getContc().getSold()-credit.getComisionA());
-            c.setSold(c.getSold()-credit.getComisionA());
-            System.out.println("Comisionul a fost colectat:)");
+    public  List <ContCurent>  colectareComisionCredit(List <ContCurent> contc,Credit credit){
+        ContCurent x =new ContCurent(); int j=-1;
+        for(ContCurent i:contc)
+            if(!(i.getIBAN().equals(credit.getIBANcontc())))
+                j++;
+            else {
+        if(i.getSold()>=credit.getComisionA())
+        {contc.get(j+1).setSold(contc.get(j+1).getSold()-credit.getComisionA());
+            //c.setSold(c.getSold()-credit.getComisionA());
+            System.out.println("\nComisionul a fost colectat:)");
             audit.Audit("Colectarea comisionului de administrare al unui cont de credit");
-             return c;}
+             return contc;}
         else {
             System.out.println("Fonduri insuficiente! Va rugam sa alimentati contul pentru a putea achita comisionul de administrare");
-            return c;
-        }
+            return contc;
+        }}
+        return contc;
     }
 
     public Cont colectareComisionContC(Cont c) {
@@ -216,6 +230,9 @@ public class Service {
             return c;
         }
     }
+
+
+
         }
 
 

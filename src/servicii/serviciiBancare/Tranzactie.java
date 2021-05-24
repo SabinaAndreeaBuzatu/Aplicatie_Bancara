@@ -1,4 +1,4 @@
-package serviciiBancare;
+package servicii.serviciiBancare;
 import produse.*;
 
 public abstract class Tranzactie {

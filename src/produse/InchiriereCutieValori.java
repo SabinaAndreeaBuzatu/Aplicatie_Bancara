@@ -1,25 +1,37 @@
 package produse;
 
 
+import java.util.UUID;
+
 public class InchiriereCutieValori {
+    private static String nrCutie;
+    private static final UUID UUID = null;
     protected double pragValoriDeclarat;
     protected String valuta;
     protected double comision;
     protected String DataAcordare;
     protected String Adresa;
-    protected ContCurent contc;
+    protected String IBANcontc;
 
     public InchiriereCutieValori(){  comision();}
-    public InchiriereCutieValori(double pragValoriDeclarat, String valuta ,String DataAcordare, String Adresa, ContCurent contc)
-    {
+    public InchiriereCutieValori(double pragValoriDeclarat, String valuta ,String DataAcordare, String Adresa, String contc)
+    {   nrCutie= UUID.randomUUID().toString();
         this.pragValoriDeclarat=pragValoriDeclarat;
         this.valuta=valuta;
         this.DataAcordare=DataAcordare;
         this.Adresa=Adresa;
-        this.contc=contc;
+        this.IBANcontc=contc;
         comision();
 
 
+    }
+
+    public  String getNrCutie() {
+        return nrCutie;
+    }
+
+    public  void setNrCutie(String nrCutie) {
+        InchiriereCutieValori.nrCutie = nrCutie;
     }
 
     public void comision()
@@ -43,8 +55,8 @@ public class InchiriereCutieValori {
         this.valuta = valuta;
     }
 
-    public ContCurent getContc() {
-        return contc;
+    public String getContc() {
+        return IBANcontc;
     }
 
     public double getComision() {
@@ -55,8 +67,8 @@ public class InchiriereCutieValori {
         return pragValoriDeclarat;
     }
 
-    public void setContc(ContCurent contc) {
-        this.contc = contc;
+    public void setContc(String contc) {
+        this.IBANcontc = contc;
     }
 
     public String getAdresa() {
@@ -82,7 +94,7 @@ public class InchiriereCutieValori {
     public String toString() {
         StringBuilder a= new StringBuilder();
 
-        a.append("\nPragul de valori declarat este  " + this.pragValoriDeclarat+ valuta+". Cutia are un comision de asdministrare de "+comision+valuta+". Data acordarii cutiei este "+DataAcordare+" iar adresa sucursalei la care se afla cutia este "+Adresa+". Comisionul de administrare va fi colectat din contul curent cu IBAN "+ contc.getIBAN());
+        a.append("\nCutia de valori cu numarul "+nrCutie+"are pragul de valori declarat  " + this.pragValoriDeclarat+ valuta+".Aceasta are un comision de asdministrare de "+comision+valuta+". Data acordarii cutiei este "+DataAcordare+" iar adresa sucursalei la care se afla cutia este "+Adresa+". Comisionul de administrare va fi colectat din contul curent cu IBAN "+ IBANcontc);
 
         return a.toString();
     }

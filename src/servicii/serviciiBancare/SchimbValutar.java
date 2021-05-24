@@ -1,9 +1,9 @@
-package serviciiBancare;
+package servicii.serviciiBancare;
 import produse.*;
 
 public class SchimbValutar extends Tranzactie {
     protected Pair<Cont> tranz;
-    protected  double sumaTrans;
+    public double sumaTrans;
 
 
     public SchimbValutar

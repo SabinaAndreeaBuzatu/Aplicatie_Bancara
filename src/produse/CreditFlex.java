@@ -6,14 +6,25 @@ public class CreditFlex extends Credit {
 
 
 
-    public CreditFlex( String IBAN, String Valuta, double Sold, int n, Card[] card, int durataluni, String DataAcordare, double SumaAcordata,ContCurent contc) {
-        super(IBAN, Valuta, Sold, n, card, durataluni, DataAcordare, SumaAcordata,contc);
+    public CreditFlex( String IBAN, String Valuta, double Sold, int n, Card[] card, int durataluni, String DataAcordare, double SumaAcordata,String IBANcontc) {
+        super(IBAN, Valuta, Sold, n, card, durataluni, DataAcordare, SumaAcordata,IBANcontc);
         dobanda();
         calcrata();
 
         this.tipcont="Credit cu dobanda variabila";
     }
 
+    public CreditFlex() {
+
+    }
+
+    @Override
+    public void setIBANcontc(String contc)
+    {
+        this.IBANcontc=contc;
+
+
+    }
     @Override
     public void comisionAdministrareCont() {
         this.ComisionA = 0.01 * Sold;
@@ -27,18 +38,7 @@ public class CreditFlex extends Credit {
 
 
     }
-    @Override
-    public void setClient(Client c) {
-    }
-    @Override
-    public void setContCurent(ContCurent contc)
-    {
-        this.contc.setIBAN(contc.getIBAN());
-        this.contc.setSold(contc.getSold());
-        this.contc.setValuta(contc.getValuta());
-        this.contc.setDataAcordare(contc.getDataAcordare());
 
-    }
 
 
 }

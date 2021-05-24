@@ -1,4 +1,4 @@
-package serviciiBancare;
+package servicii.serviciiBancare;
 
 public class Extras  {
 

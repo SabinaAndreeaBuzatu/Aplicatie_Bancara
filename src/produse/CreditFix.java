@@ -8,9 +8,9 @@ public class CreditFix extends Credit {
     public CreditFix(){
         super();
         this.tipcont="Credit cu dobanda fixa";}
-    public CreditFix(String IBAN, String Valuta, double Sold,int n, Card[] card , int durataluni, String DataAcordare, double SumaAcordata, ContCurent contc)
+    public CreditFix(String IBAN, String Valuta, double Sold,int n, Card[] card , int durataluni, String DataAcordare, double SumaAcordata, String IBANcontc)
     {
-        super(IBAN, Valuta,Sold, n, card , durataluni,DataAcordare,SumaAcordata,contc);
+        super(IBAN, Valuta,Sold, n, card , durataluni,DataAcordare,SumaAcordata,IBANcontc);
 
         dobanda();
         this.tipcont="Credit cu dobanda fixa";
@@ -19,12 +19,10 @@ public class CreditFix extends Credit {
     }
 
     @Override
-    public void setContCurent(ContCurent contc)
+    public void setIBANcontc(String contc)
     {
-        this.contc.setIBAN(contc.getIBAN());
-        this.contc.setSold(contc.getSold());
-        this.contc.setValuta(contc.getValuta());
-        this.contc.setDataAcordare(contc.getDataAcordare());
+        this.IBANcontc=contc;
+
 
     }
     @Override
@@ -34,10 +32,9 @@ public class CreditFix extends Credit {
 
     }
 
-    @Override
-    public void setClient(Client c) {
 
-    }
+
+
 
     @Override
     public void dobanda ()

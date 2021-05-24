@@ -1,8 +1,9 @@
 package produse;
 
 import client.Client;
-import serviciiBancare.Extras;
-import serviciiBancare.Tranzactie;
+import servicii.serviciiBancare.Extras;
+import servicii.serviciiBancare.Tranzactie;
+import validari.ValidareCont;
 
 import java.util.*;
 
@@ -22,7 +23,7 @@ public abstract class Cont {
 
     public Cont() {
     }
-//MODIFICA
+
     public Cont(String IBAN, String Valuta, double Sold, int n, Card[] card, String DataAcordare) {
         this.carduri = new ArrayList<>(n);
         this.IBAN = IBAN;
@@ -70,7 +71,6 @@ public abstract class Cont {
         return tipcont;
     }
 
-    public abstract void setClient(Client c);
 
     public String getDataAcordare() {
         return DataAcordare;
@@ -172,8 +172,8 @@ public abstract class Cont {
     public String toString() {
         StringBuilder a = new StringBuilder();
         a.append("\n" + this.tipcont + " cu IBAN " + this.IBAN + ", Data deschiderii contului " + this.DataAcordare + ", Soldul curent este: " + this.Sold + " in valuta " + Valuta + " si are un comision de administrare lunar de " + ComisionA + Valuta);
-        a.append("\nAcesta are atasat " + this.nrcarduri + " carduri.");
-        for (int j = 0; j < nrcarduri; j++)
+        a.append("\nAcesta are atasat " + carduri.size() + " carduri.");
+        for (int j = 0; j < carduri.size(); j++)
 
             a.append("\n" + carduri.get(j));
 
@@ -186,7 +186,8 @@ public abstract class Cont {
         System.out.println(extras.toString());
 
     }
-    public abstract void setContCurent(ContCurent c);
+    public abstract void setIBANcontc(String c);
+
 
 
 

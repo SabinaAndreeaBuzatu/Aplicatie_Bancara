@@ -8,23 +8,23 @@ public abstract class Credit extends Cont{
     protected double dobanda;
     protected BNRval valori;
     protected BancaVal valorib;
-    protected ContCurent contc;
+    protected String IBANcontc;
     protected double ratac;
     protected int ratePlatite;
 
     public Credit(){
-        this.contc=new ContCurent();
+
         valori=new BNRval();
         valorib=new BancaVal();
     }
-    public Credit (String IBAN, String Valuta, double Sold,int n, Card[] card ,int durataluni, String DataAcordare, double SumaAcordata, ContCurent contc)
+    public Credit (String IBAN, String Valuta, double Sold,int n, Card[] card ,int durataluni, String DataAcordare, double SumaAcordata, String IBANcontc )
     {
         super( IBAN, Valuta, Sold, n, card, DataAcordare);
         this.durataluni=durataluni;
         this.SumaAcordata=SumaAcordata;
         valori=new BNRval();
         valorib=new BancaVal();
-        this.contc=contc;
+        this.IBANcontc=IBANcontc;
         ratePlatite =0;
 
 
@@ -40,12 +40,12 @@ public abstract class Credit extends Cont{
     {return ratePlatite;
     }
 
-    public void setContc(ContCurent contc) {
-        this.contc = contc;
+    public void setIBANcontc(String IBANcontc) {
+        this.IBANcontc = IBANcontc;
     }
 
-    public ContCurent getContc() {
-        return contc;
+    public String getIBANcontc() {
+        return IBANcontc;
     }
 
     public abstract void dobanda();
@@ -74,7 +74,7 @@ public abstract class Credit extends Cont{
     public String toString() {
         StringBuilder a= new StringBuilder();
         a.append(super.toString());
-        a.append("Creditul se desfasoara pe  " + this.durataluni + " luni, suma acordata este " + this.SumaAcordata + this.Valuta+". Dobanda pentru acest credit este " +this.dobanda + " Rata in valoare de "+ratac+" va fi colectata din contul curent cu IBAN "+ contc.IBAN);
+        a.append("Creditul se desfasoara pe  " + this.durataluni + " luni, suma acordata este " + this.SumaAcordata + this.Valuta+". Dobanda pentru acest credit este " +this.dobanda + " Rata in valoare de "+ratac+" va fi colectata din contul curent cu IBAN "+ IBANcontc);
 
         return a.toString();
     }

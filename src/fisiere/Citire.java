@@ -108,11 +108,11 @@ public class Citire {
 
     }
 
-    public List<Cont> CitireContCurent(List<Client> clienti) {
+    public List<produse.ContCurent> CitireContCurent(List<Client> clienti) {
         try {
             ContCurent = new BufferedReader(new FileReader(fisiere + "\\citire\\ContCurent.csv"));
-            List<Cont> conturi = new ArrayList<>();
-            Cont c;
+            List<produse.ContCurent> conturi = new ArrayList<>();
+            ContCurent c;
             String linie;
             String[] camp;
 
@@ -129,7 +129,7 @@ public class Citire {
                             c.setValuta(camp[3]);
                             c.setSold(Double.parseDouble(camp[4]));
                             c.setDataAcordare(camp[5]);
-                            c.setClient(client);
+                            c.setcnp(client.getCNP());
                             c.comisionAdministrareCont();
                             conturi.add(c);
                         }
@@ -255,7 +255,7 @@ public class Citire {
                             c.setValuta(camp[3]);
                             c.setSold(Double.parseDouble(camp[4]));
                             c.setDataAcordare(camp[5]);
-                            c.setContCurent(contc);
+                            c.setIBANcontc(contc.getIBAN());
                             c.comisionAdministrareCont();
                             conturi.add(c);
                         }
@@ -269,7 +269,7 @@ public class Citire {
                             credit.setValuta(camp[3]);
                             credit.setSold(Double.parseDouble(camp[4]));
                             credit.setDataAcordare(camp[6]);
-                            credit.setContCurent(contc);
+                            credit.setIBANcontc(contc.getIBAN());
                             credit.setDurataluni(Integer.parseInt(camp[5]));
                             credit.setSumaAcordata(Double.parseDouble(camp[7]));
                             credit.dobanda();
@@ -281,13 +281,13 @@ public class Citire {
                     String iban = camp[0];
                     for (ContCurent contc : conturic)
                         if (iban.equals(contc.getIBAN())) {
-                            credit = new CreditFix();
+                            credit = new CreditFlex();
                             credit.settipcont(camp[1]);
                             credit.setIBAN(camp[2]);
                             credit.setValuta(camp[3]);
                             credit.setSold(Double.parseDouble(camp[4]));
                             credit.setDataAcordare(camp[6]);
-                            credit.setContCurent(contc);
+                            credit.setIBANcontc(contc.getIBAN());
                             credit.setDurataluni(Integer.parseInt(camp[5]));
                             credit.setSumaAcordata(Double.parseDouble(camp[7]));
                             credit.dobanda();
@@ -332,7 +332,7 @@ public class Citire {
                         c.setValuta(camp[2]);
                         c.setDataAcordare(camp[3]);
                         c.setAdresa(camp[4]);
-                        c.setContc(contc);
+                        c.setContc(contc.getIBAN());
                         cutii.add(c);
                     }
             }

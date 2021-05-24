@@ -13,7 +13,7 @@ public class Pair <U,V> {
 
     }
 
-    public V getCarduri() {
+    public V getSecond() {
         return second;
     }
 }
